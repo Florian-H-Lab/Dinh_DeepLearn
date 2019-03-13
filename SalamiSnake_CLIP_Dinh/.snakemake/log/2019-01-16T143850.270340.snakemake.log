@@ -1,0 +1,3 @@
+SyntaxError in line 55 of /scratch/bi03/heylf/SalamiSnake_CLIP/rules/PARCLIP/PARCLIP_mapping_quality.py:
+EOF in multi-line statement (PARCLIP_mapping_quality.py, line 55)
+  File "/scratch/bi03/heylf/SalamiSnake_CLIP/Snakefile.py", line 223, in <module>

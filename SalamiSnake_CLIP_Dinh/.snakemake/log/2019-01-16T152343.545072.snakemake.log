@@ -1,0 +1,567 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cluster nodes: 20
+Job counts:
+	count	jobs
+	1	all
+	2	calculate_coverage
+	6	calculate_coverage_bigwig
+	2	correct_bed_format_check
+	2	cutadapt_first_read_clip
+	2	deduplication
+	2	extract_alignment_ends
+	2	extract_crosslinking_position
+	4	fastqc_after_adapter_removal
+	2	fastqc_after_dedup
+	2	fastqc_before_dedup
+	4	fastqc_beginning
+	2	filter_out_unlocalized_regions_for_later_genome_versions
+	2	indexing
+	1	multiqc
+	2	remove_tail
+	1	renaming
+	2	sort_beds
+	2	star
+	2	unique_reads_fitlering
+	45
+
+[Wed Jan 16 15:23:45 2019]
+rule renaming:
+    input: /scratch/bi03/heylf/Marc/YY1/UV_YY1_R1.fastq, /scratch/bi03/heylf/Marc/YY1/UV_YY1_R2.fastq, /scratch/bi03/heylf/Marc/YY1/UV_IgG_R1.fastq, /scratch/bi03/heylf/Marc/YY1/UV_IgG_R2.fastq
+    output: /scratch/bi03/heylf/Marc/YY1/renaming/YY1_rep1_r1.fastqsanger, /scratch/bi03/heylf/Marc/YY1/renaming/YY1_rep1_r2.fastqsanger, /scratch/bi03/heylf/Marc/YY1/renaming/IgG_rep1_r1.fastqsanger, /scratch/bi03/heylf/Marc/YY1/renaming/IgG_rep1_r2.fastqsanger, /scratch/bi03/heylf/Marc/YY1/renaming/renaming_log.txt
+    jobid: 34
+
+Error recording metadata for finished job ([Errno 2] No such file or directory: '/scratch/bi03/heylf/Marc/YY1/renaming/YY1_rep1_r1.fastqsanger'). Please ensure write permissions for the directory /scratch/bi03/heylf/SalamiSnake_CLIP/.snakemake
+[Wed Jan 16 15:23:45 2019]
+Finished job 34.
+1 of 45 steps (2%) done
+
+[Wed Jan 16 15:23:45 2019]
+rule fastqc_beginning:
+    input: /scratch/bi03/heylf/Marc/YY1/renaming/YY1_rep1_r2.fastqsanger
+    output: /scratch/bi03/heylf/Marc/YY1/fastqc_beginning/YY1_rep1_r2.fastqsanger_fastqc.html, /scratch/bi03/heylf/Marc/YY1/fastqc_beginning/YY1_rep1_r2.fastqsanger_fastqc.zip
+    jobid: 17
+    wildcards: sample=YY1, replicate=rep1, pair=r2
+    threads: 2
+
+[Wed Jan 16 15:23:45 2019]
+Finished job 17.
+2 of 45 steps (4%) done
+
+[Wed Jan 16 15:23:45 2019]
+rule fastqc_beginning:
+    input: /scratch/bi03/heylf/Marc/YY1/renaming/IgG_rep1_r1.fastqsanger
+    output: /scratch/bi03/heylf/Marc/YY1/fastqc_beginning/IgG_rep1_r1.fastqsanger_fastqc.html, /scratch/bi03/heylf/Marc/YY1/fastqc_beginning/IgG_rep1_r1.fastqsanger_fastqc.zip
+    jobid: 22
+    wildcards: sample=IgG, replicate=rep1, pair=r1
+    threads: 2
+
+Error recording metadata for finished job ([Errno 2] No such file or directory: '/scratch/bi03/heylf/Marc/YY1/fastqc_beginning/IgG_rep1_r1.fastqsanger_fastqc.html'). Please ensure write permissions for the directory /scratch/bi03/heylf/SalamiSnake_CLIP/.snakemake
+[Wed Jan 16 15:23:46 2019]
+Finished job 22.
+3 of 45 steps (7%) done
+
+[Wed Jan 16 15:23:46 2019]
+rule cutadapt_first_read_clip:
+    input: /scratch/bi03/heylf/Marc/YY1/renaming/IgG_rep1_r1.fastqsanger, /scratch/bi03/heylf/Marc/YY1/renaming/IgG_rep1_r2.fastqsanger
+    output: /scratch/bi03/heylf/Marc/YY1/cutadapt/IgG_rep1_r1.fastqsanger, /scratch/bi03/heylf/Marc/YY1/cutadapt/IgG_rep1_r2.fastqsanger, /scratch/bi03/heylf/Marc/YY1/cutadapt/IgG_rep1.txt
+    jobid: 41
+    wildcards: sample=IgG, replicate=rep1
+    threads: 2
+
+[Wed Jan 16 15:23:46 2019]
+Finished job 41.
+4 of 45 steps (9%) done
+
+[Wed Jan 16 15:23:46 2019]
+rule fastqc_beginning:
+    input: /scratch/bi03/heylf/Marc/YY1/renaming/IgG_rep1_r2.fastqsanger
+    output: /scratch/bi03/heylf/Marc/YY1/fastqc_beginning/IgG_rep1_r2.fastqsanger_fastqc.html, /scratch/bi03/heylf/Marc/YY1/fastqc_beginning/IgG_rep1_r2.fastqsanger_fastqc.zip
+    jobid: 23
+    wildcards: sample=IgG, replicate=rep1, pair=r2
+    threads: 2
+
+Error recording metadata for finished job ([Errno 2] No such file or directory: '/scratch/bi03/heylf/Marc/YY1/fastqc_beginning/IgG_rep1_r2.fastqsanger_fastqc.html'). Please ensure write permissions for the directory /scratch/bi03/heylf/SalamiSnake_CLIP/.snakemake
+[Wed Jan 16 15:23:46 2019]
+Finished job 23.
+5 of 45 steps (11%) done
+
+[Wed Jan 16 15:23:46 2019]
+rule cutadapt_first_read_clip:
+    input: /scratch/bi03/heylf/Marc/YY1/renaming/YY1_rep1_r1.fastqsanger, /scratch/bi03/heylf/Marc/YY1/renaming/YY1_rep1_r2.fastqsanger
+    output: /scratch/bi03/heylf/Marc/YY1/cutadapt/YY1_rep1_r1.fastqsanger, /scratch/bi03/heylf/Marc/YY1/cutadapt/YY1_rep1_r2.fastqsanger, /scratch/bi03/heylf/Marc/YY1/cutadapt/YY1_rep1.txt
+    jobid: 40
+    wildcards: sample=YY1, replicate=rep1
+    threads: 2
+
+[Wed Jan 16 15:23:46 2019]
+Finished job 40.
+6 of 45 steps (13%) done
+
+[Wed Jan 16 15:23:46 2019]
+rule fastqc_beginning:
+    input: /scratch/bi03/heylf/Marc/YY1/renaming/YY1_rep1_r1.fastqsanger
+    output: /scratch/bi03/heylf/Marc/YY1/fastqc_beginning/YY1_rep1_r1.fastqsanger_fastqc.html, /scratch/bi03/heylf/Marc/YY1/fastqc_beginning/YY1_rep1_r1.fastqsanger_fastqc.zip
+    jobid: 19
+    wildcards: sample=YY1, replicate=rep1, pair=r1
+    threads: 2
+
+[Wed Jan 16 15:23:46 2019]
+Finished job 19.
+7 of 45 steps (16%) done
+
+[Wed Jan 16 15:23:46 2019]
+rule remove_tail:
+    input: /scratch/bi03/heylf/Marc/YY1/cutadapt/IgG_rep1_r1.fastqsanger, /scratch/bi03/heylf/Marc/YY1/cutadapt/IgG_rep1_r2.fastqsanger
+    output: /scratch/bi03/heylf/Marc/YY1/remove_tail/IgG_rep1_r1_trimmed.fastqsanger, /scratch/bi03/heylf/Marc/YY1/remove_tail/IgG_rep1_r2_trimmed.fastqsanger
+    jobid: 32
+    wildcards: sample=IgG, replicate=rep1
+    threads: 2
+
+[Wed Jan 16 15:23:46 2019]
+Finished job 32.
+8 of 45 steps (18%) done
+
+[Wed Jan 16 15:23:46 2019]
+rule remove_tail:
+    input: /scratch/bi03/heylf/Marc/YY1/cutadapt/YY1_rep1_r1.fastqsanger, /scratch/bi03/heylf/Marc/YY1/cutadapt/YY1_rep1_r2.fastqsanger
+    output: /scratch/bi03/heylf/Marc/YY1/remove_tail/YY1_rep1_r1_trimmed.fastqsanger, /scratch/bi03/heylf/Marc/YY1/remove_tail/YY1_rep1_r2_trimmed.fastqsanger
+    jobid: 30
+    wildcards: sample=YY1, replicate=rep1
+    threads: 2
+
+[Wed Jan 16 15:23:46 2019]
+Finished job 30.
+9 of 45 steps (20%) done
+
+[Wed Jan 16 15:23:46 2019]
+rule star:
+    input: /scratch/bi03/heylf/genomes/mm10/sjdbList.fromGTF.out.tab, /scratch/bi03/heylf/Marc/YY1/remove_tail/YY1_rep1_r1_trimmed.fastqsanger, /scratch/bi03/heylf/Marc/YY1/remove_tail/YY1_rep1_r2_trimmed.fastqsanger
+    output: /scratch/bi03/heylf/Marc/YY1/mapping/YY1_rep1.txt, /scratch/bi03/heylf/Marc/YY1/mapping/YY1_rep1.bam, /scratch/bi03/heylf/Marc/YY1/mapping/YY1_rep1_Log.final.out
+    jobid: 12
+    wildcards: sample=YY1, replicate=rep1
+    threads: 4
+
+[Wed Jan 16 15:23:46 2019]
+Finished job 12.
+10 of 45 steps (22%) done
+
+[Wed Jan 16 15:23:46 2019]
+rule fastqc_after_adapter_removal:
+    input: /scratch/bi03/heylf/Marc/YY1/remove_tail/IgG_rep1_r2_trimmed.fastqsanger
+    output: /scratch/bi03/heylf/Marc/YY1/fastqc_after_trimming/IgG_rep1_r2_trimmed.fastqsanger_fastqc.html, /scratch/bi03/heylf/Marc/YY1/fastqc_after_trimming/IgG_rep1_r2_trimmed.fastqsanger_fastqc.zip
+    jobid: 24
+    wildcards: sample=IgG, replicate=rep1, pair=r2
+    threads: 2
+
+[Wed Jan 16 15:23:47 2019]
+Finished job 24.
+11 of 45 steps (24%) done
+
+[Wed Jan 16 15:23:47 2019]
+rule fastqc_after_adapter_removal:
+    input: /scratch/bi03/heylf/Marc/YY1/remove_tail/YY1_rep1_r1_trimmed.fastqsanger
+    output: /scratch/bi03/heylf/Marc/YY1/fastqc_after_trimming/YY1_rep1_r1_trimmed.fastqsanger_fastqc.html, /scratch/bi03/heylf/Marc/YY1/fastqc_after_trimming/YY1_rep1_r1_trimmed.fastqsanger_fastqc.zip
+    jobid: 21
+    wildcards: sample=YY1, replicate=rep1, pair=r1
+    threads: 2
+
+Error recording metadata for finished job ([Errno 2] No such file or directory: '/scratch/bi03/heylf/Marc/YY1/fastqc_after_trimming/YY1_rep1_r1_trimmed.fastqsanger_fastqc.html'). Please ensure write permissions for the directory /scratch/bi03/heylf/SalamiSnake_CLIP/.snakemake
+[Wed Jan 16 15:23:47 2019]
+Finished job 21.
+12 of 45 steps (27%) done
+
+[Wed Jan 16 15:23:47 2019]
+rule fastqc_after_adapter_removal:
+    input: /scratch/bi03/heylf/Marc/YY1/remove_tail/YY1_rep1_r2_trimmed.fastqsanger
+    output: /scratch/bi03/heylf/Marc/YY1/fastqc_after_trimming/YY1_rep1_r2_trimmed.fastqsanger_fastqc.html, /scratch/bi03/heylf/Marc/YY1/fastqc_after_trimming/YY1_rep1_r2_trimmed.fastqsanger_fastqc.zip
+    jobid: 16
+    wildcards: sample=YY1, replicate=rep1, pair=r2
+    threads: 2
+
+Error recording metadata for finished job ([Errno 2] No such file or directory: '/scratch/bi03/heylf/Marc/YY1/fastqc_after_trimming/YY1_rep1_r2_trimmed.fastqsanger_fastqc.html'). Please ensure write permissions for the directory /scratch/bi03/heylf/SalamiSnake_CLIP/.snakemake
+[Wed Jan 16 15:23:47 2019]
+Finished job 16.
+13 of 45 steps (29%) done
+
+[Wed Jan 16 15:23:47 2019]
+rule star:
+    input: /scratch/bi03/heylf/genomes/mm10/sjdbList.fromGTF.out.tab, /scratch/bi03/heylf/Marc/YY1/remove_tail/IgG_rep1_r1_trimmed.fastqsanger, /scratch/bi03/heylf/Marc/YY1/remove_tail/IgG_rep1_r2_trimmed.fastqsanger
+    output: /scratch/bi03/heylf/Marc/YY1/mapping/IgG_rep1.txt, /scratch/bi03/heylf/Marc/YY1/mapping/IgG_rep1.bam, /scratch/bi03/heylf/Marc/YY1/mapping/IgG_rep1_Log.final.out
+    jobid: 13
+    wildcards: sample=IgG, replicate=rep1
+    threads: 4
+
+[Wed Jan 16 15:23:47 2019]
+Finished job 13.
+14 of 45 steps (31%) done
+
+[Wed Jan 16 15:23:47 2019]
+rule fastqc_after_adapter_removal:
+    input: /scratch/bi03/heylf/Marc/YY1/remove_tail/IgG_rep1_r1_trimmed.fastqsanger
+    output: /scratch/bi03/heylf/Marc/YY1/fastqc_after_trimming/IgG_rep1_r1_trimmed.fastqsanger_fastqc.html, /scratch/bi03/heylf/Marc/YY1/fastqc_after_trimming/IgG_rep1_r1_trimmed.fastqsanger_fastqc.zip
+    jobid: 20
+    wildcards: sample=IgG, replicate=rep1, pair=r1
+    threads: 2
+
+[Wed Jan 16 15:23:47 2019]
+Finished job 20.
+15 of 45 steps (33%) done
+
+[Wed Jan 16 15:23:47 2019]
+rule indexing:
+    input: /scratch/bi03/heylf/Marc/YY1/mapping/IgG_rep1.bam
+    output: /scratch/bi03/heylf/Marc/YY1/mapping/IgG_rep1.bam.bai
+    jobid: 3
+    wildcards: sample=IgG, replicate=rep1
+    threads: 2
+
+[Wed Jan 16 15:23:47 2019]
+Finished job 3.
+16 of 45 steps (36%) done
+
+[Wed Jan 16 15:23:47 2019]
+rule unique_reads_fitlering:
+    input: /scratch/bi03/heylf/Marc/YY1/mapping/YY1_rep1.bam
+    output: /scratch/bi03/heylf/Marc/YY1/preprocessing_for_umi/YY1_rep1_unique_reads_fitlering.bam
+    jobid: 44
+    wildcards: sample=YY1, replicate=rep1
+    threads: 2
+
+[Wed Jan 16 15:23:47 2019]
+Finished job 44.
+17 of 45 steps (38%) done
+
+[Wed Jan 16 15:23:47 2019]
+rule unique_reads_fitlering:
+    input: /scratch/bi03/heylf/Marc/YY1/mapping/IgG_rep1.bam
+    output: /scratch/bi03/heylf/Marc/YY1/preprocessing_for_umi/IgG_rep1_unique_reads_fitlering.bam
+    jobid: 43
+    wildcards: sample=IgG, replicate=rep1
+    threads: 2
+
+[Wed Jan 16 15:23:47 2019]
+Finished job 43.
+18 of 45 steps (40%) done
+
+[Wed Jan 16 15:23:47 2019]
+rule indexing:
+    input: /scratch/bi03/heylf/Marc/YY1/mapping/YY1_rep1.bam
+    output: /scratch/bi03/heylf/Marc/YY1/mapping/YY1_rep1.bam.bai
+    jobid: 4
+    wildcards: sample=YY1, replicate=rep1
+    threads: 2
+
+[Wed Jan 16 15:23:47 2019]
+Finished job 4.
+19 of 45 steps (42%) done
+
+[Wed Jan 16 15:23:47 2019]
+rule filter_out_unlocalized_regions_for_later_genome_versions:
+    input: /scratch/bi03/heylf/Marc/YY1/preprocessing_for_umi/YY1_rep1_unique_reads_fitlering.bam
+    output: /scratch/bi03/heylf/Marc/YY1/preprocessing_for_umi/YY1_rep1_got_umis_unlocalized_check.bam
+    jobid: 38
+    wildcards: sample=YY1, replicate=rep1
+    threads: 2
+
+[Wed Jan 16 15:23:48 2019]
+Finished job 38.
+20 of 45 steps (44%) done
+
+[Wed Jan 16 15:23:48 2019]
+rule filter_out_unlocalized_regions_for_later_genome_versions:
+    input: /scratch/bi03/heylf/Marc/YY1/preprocessing_for_umi/IgG_rep1_unique_reads_fitlering.bam
+    output: /scratch/bi03/heylf/Marc/YY1/preprocessing_for_umi/IgG_rep1_got_umis_unlocalized_check.bam
+    jobid: 37
+    wildcards: sample=IgG, replicate=rep1
+    threads: 2
+
+[Wed Jan 16 15:23:48 2019]
+Finished job 37.
+21 of 45 steps (47%) done
+
+[Wed Jan 16 15:23:48 2019]
+rule fastqc_before_dedup:
+    input: /scratch/bi03/heylf/Marc/YY1/preprocessing_for_umi/IgG_rep1_got_umis_unlocalized_check.bam
+    output: /scratch/bi03/heylf/Marc/YY1/fastqc_before_deduplication/IgG_rep1_got_umis_unlocalized_check_fastqc.html
+    jobid: 26
+    wildcards: sample=IgG, replicate=rep1
+    threads: 2
+
+[Wed Jan 16 15:23:48 2019]
+Finished job 26.
+22 of 45 steps (49%) done
+
+[Wed Jan 16 15:23:48 2019]
+rule deduplication:
+    input: /scratch/bi03/heylf/Marc/YY1/preprocessing_for_umi/IgG_rep1_got_umis_unlocalized_check.bam
+    output: /scratch/bi03/heylf/Marc/YY1/deduplication/IgG_rep1.bam, /scratch/bi03/heylf/Marc/YY1/deduplication/IgG_rep1_log.txt, /scratch/bi03/heylf/Marc/YY1/deduplication/IgG_rep1_sorted.bam
+    jobid: 35
+    wildcards: sample=IgG, replicate=rep1
+    threads: 2
+
+[Wed Jan 16 15:23:48 2019]
+Finished job 35.
+23 of 45 steps (51%) done
+
+[Wed Jan 16 15:23:48 2019]
+rule deduplication:
+    input: /scratch/bi03/heylf/Marc/YY1/preprocessing_for_umi/YY1_rep1_got_umis_unlocalized_check.bam
+    output: /scratch/bi03/heylf/Marc/YY1/deduplication/YY1_rep1.bam, /scratch/bi03/heylf/Marc/YY1/deduplication/YY1_rep1_log.txt, /scratch/bi03/heylf/Marc/YY1/deduplication/YY1_rep1_sorted.bam
+    jobid: 36
+    wildcards: sample=YY1, replicate=rep1
+    threads: 2
+
+[Wed Jan 16 15:23:48 2019]
+Finished job 36.
+24 of 45 steps (53%) done
+
+[Wed Jan 16 15:23:48 2019]
+rule fastqc_before_dedup:
+    input: /scratch/bi03/heylf/Marc/YY1/preprocessing_for_umi/YY1_rep1_got_umis_unlocalized_check.bam
+    output: /scratch/bi03/heylf/Marc/YY1/fastqc_before_deduplication/YY1_rep1_got_umis_unlocalized_check_fastqc.html
+    jobid: 27
+    wildcards: sample=YY1, replicate=rep1
+    threads: 2
+
+[Wed Jan 16 15:23:48 2019]
+Finished job 27.
+25 of 45 steps (56%) done
+
+[Wed Jan 16 15:23:48 2019]
+rule extract_alignment_ends:
+    input: /scratch/bi03/heylf/Marc/YY1/deduplication/YY1_rep1_sorted.bam
+    output: /scratch/bi03/heylf/Marc/YY1/coverage/YY1_rep1_alignment_ends.bed
+    jobid: 47
+    wildcards: sample=YY1, replicate=rep1
+    threads: 2
+
+[Wed Jan 16 15:23:48 2019]
+Finished job 47.
+26 of 45 steps (58%) done
+
+[Wed Jan 16 15:23:48 2019]
+rule fastqc_after_dedup:
+    input: /scratch/bi03/heylf/Marc/YY1/deduplication/YY1_rep1.bam
+    output: /scratch/bi03/heylf/Marc/YY1/fastqc_after_deduplication/YY1_rep1_fastqc.html
+    jobid: 25
+    wildcards: sample=YY1, replicate=rep1
+    threads: 2
+
+[Wed Jan 16 15:23:48 2019]
+Finished job 25.
+27 of 45 steps (60%) done
+
+[Wed Jan 16 15:23:48 2019]
+rule fastqc_after_dedup:
+    input: /scratch/bi03/heylf/Marc/YY1/deduplication/IgG_rep1.bam
+    output: /scratch/bi03/heylf/Marc/YY1/fastqc_after_deduplication/IgG_rep1_fastqc.html
+    jobid: 18
+    wildcards: sample=IgG, replicate=rep1
+    threads: 2
+
+[Wed Jan 16 15:23:48 2019]
+Finished job 18.
+28 of 45 steps (62%) done
+
+[Wed Jan 16 15:23:48 2019]
+rule extract_alignment_ends:
+    input: /scratch/bi03/heylf/Marc/YY1/deduplication/IgG_rep1_sorted.bam
+    output: /scratch/bi03/heylf/Marc/YY1/coverage/IgG_rep1_alignment_ends.bed
+    jobid: 49
+    wildcards: sample=IgG, replicate=rep1
+    threads: 2
+
+[Wed Jan 16 15:23:49 2019]
+Finished job 49.
+29 of 45 steps (64%) done
+
+[Wed Jan 16 15:23:49 2019]
+rule multiqc:
+    input: /scratch/bi03/heylf/Marc/YY1/fastqc_beginning/YY1_rep1_r1.fastqsanger_fastqc.html, /scratch/bi03/heylf/Marc/YY1/fastqc_beginning/YY1_rep1_r2.fastqsanger_fastqc.html, /scratch/bi03/heylf/Marc/YY1/fastqc_beginning/IgG_rep1_r1.fastqsanger_fastqc.html, /scratch/bi03/heylf/Marc/YY1/fastqc_beginning/IgG_rep1_r2.fastqsanger_fastqc.html, /scratch/bi03/heylf/Marc/YY1/fastqc_after_trimming/YY1_rep1_r1_trimmed.fastqsanger_fastqc.html, /scratch/bi03/heylf/Marc/YY1/fastqc_after_trimming/YY1_rep1_r2_trimmed.fastqsanger_fastqc.html, /scratch/bi03/heylf/Marc/YY1/fastqc_after_trimming/IgG_rep1_r1_trimmed.fastqsanger_fastqc.html, /scratch/bi03/heylf/Marc/YY1/fastqc_after_trimming/IgG_rep1_r2_trimmed.fastqsanger_fastqc.html, /scratch/bi03/heylf/Marc/YY1/fastqc_before_deduplication/YY1_rep1_got_umis_unlocalized_check_fastqc.html, /scratch/bi03/heylf/Marc/YY1/fastqc_before_deduplication/IgG_rep1_got_umis_unlocalized_check_fastqc.html, /scratch/bi03/heylf/Marc/YY1/fastqc_after_deduplication/YY1_rep1_fastqc.html, /scratch/bi03/heylf/Marc/YY1/fastqc_after_deduplication/IgG_rep1_fastqc.html, /scratch/bi03/heylf/Marc/YY1/mapping/YY1_rep1_Log.final.out, /scratch/bi03/heylf/Marc/YY1/mapping/IgG_rep1_Log.final.out
+    output: /scratch/bi03/heylf/Marc/YY1/multiqc/multiqc_report.html
+    jobid: 2
+    threads: 2
+
+Error recording metadata for finished job ([Errno 2] No such file or directory: '/scratch/bi03/heylf/Marc/YY1/multiqc/multiqc_report.html'). Please ensure write permissions for the directory /scratch/bi03/heylf/SalamiSnake_CLIP/.snakemake
+[Wed Jan 16 15:23:49 2019]
+Finished job 2.
+30 of 45 steps (67%) done
+
+[Wed Jan 16 15:23:49 2019]
+rule extract_crosslinking_position:
+    input: /scratch/bi03/heylf/Marc/YY1/coverage/YY1_rep1_alignment_ends.bed
+    output: /scratch/bi03/heylf/Marc/YY1/coverage/YY1_rep1_crosslinking_positions.bed
+    jobid: 46
+    wildcards: sample=YY1, replicate=rep1
+    threads: 2
+
+[Wed Jan 16 15:23:49 2019]
+Finished job 46.
+31 of 45 steps (69%) done
+
+[Wed Jan 16 15:23:49 2019]
+rule extract_crosslinking_position:
+    input: /scratch/bi03/heylf/Marc/YY1/coverage/IgG_rep1_alignment_ends.bed
+    output: /scratch/bi03/heylf/Marc/YY1/coverage/IgG_rep1_crosslinking_positions.bed
+    jobid: 48
+    wildcards: sample=IgG, replicate=rep1
+    threads: 2
+
+[Wed Jan 16 15:23:49 2019]
+Finished job 48.
+32 of 45 steps (71%) done
+
+[Wed Jan 16 15:23:49 2019]
+rule correct_bed_format_check:
+    input: /scratch/bi03/heylf/Marc/YY1/coverage/YY1_rep1_crosslinking_positions.bed, /scratch/bi03/heylf/Marc/YY1/coverage/YY1_rep1_alignment_ends.bed
+    output: /scratch/bi03/heylf/Marc/YY1/coverage/YY1_rep1_crosslinking_positions_check.bed, /scratch/bi03/heylf/Marc/YY1/coverage/YY1_rep1_alignment_ends_check.bed
+    jobid: 42
+    wildcards: sample=YY1, replicate=rep1
+    threads: 2
+
+[Wed Jan 16 15:23:49 2019]
+Finished job 42.
+33 of 45 steps (73%) done
+
+[Wed Jan 16 15:23:49 2019]
+rule correct_bed_format_check:
+    input: /scratch/bi03/heylf/Marc/YY1/coverage/IgG_rep1_crosslinking_positions.bed, /scratch/bi03/heylf/Marc/YY1/coverage/IgG_rep1_alignment_ends.bed
+    output: /scratch/bi03/heylf/Marc/YY1/coverage/IgG_rep1_crosslinking_positions_check.bed, /scratch/bi03/heylf/Marc/YY1/coverage/IgG_rep1_alignment_ends_check.bed
+    jobid: 45
+    wildcards: sample=IgG, replicate=rep1
+    threads: 2
+
+[Wed Jan 16 15:23:49 2019]
+Finished job 45.
+34 of 45 steps (76%) done
+
+[Wed Jan 16 15:23:49 2019]
+rule sort_beds:
+    input: /scratch/bi03/heylf/Marc/YY1/coverage/IgG_rep1_crosslinking_positions_check.bed, /scratch/bi03/heylf/Marc/YY1/coverage/IgG_rep1_alignment_ends_check.bed
+    output: /scratch/bi03/heylf/Marc/YY1/coverage/IgG_rep1_crosslinking_positions_sorted.bed, /scratch/bi03/heylf/Marc/YY1/coverage/IgG_rep1_alignment_ends_sorted.bed
+    jobid: 39
+    wildcards: sample=IgG, replicate=rep1
+    threads: 2
+
+[Wed Jan 16 15:23:49 2019]
+Finished job 39.
+35 of 45 steps (78%) done
+
+[Wed Jan 16 15:23:49 2019]
+rule sort_beds:
+    input: /scratch/bi03/heylf/Marc/YY1/coverage/YY1_rep1_crosslinking_positions_check.bed, /scratch/bi03/heylf/Marc/YY1/coverage/YY1_rep1_alignment_ends_check.bed
+    output: /scratch/bi03/heylf/Marc/YY1/coverage/YY1_rep1_crosslinking_positions_sorted.bed, /scratch/bi03/heylf/Marc/YY1/coverage/YY1_rep1_alignment_ends_sorted.bed
+    jobid: 33
+    wildcards: sample=YY1, replicate=rep1
+    threads: 2
+
+[Wed Jan 16 15:23:49 2019]
+Finished job 33.
+36 of 45 steps (80%) done
+
+[Wed Jan 16 15:23:49 2019]
+rule calculate_coverage:
+    input: /scratch/bi03/heylf/Marc/YY1/coverage/IgG_rep1_crosslinking_positions_sorted.bed, /scratch/bi03/heylf/Marc/YY1/coverage/IgG_rep1_alignment_ends_sorted.bed
+    output: /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/IgG_rep1_crosslinking_coverage_pos_strand.bedgraph, /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/IgG_rep1_crosslinking_coverage_neg_strand.bedgraph, /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/IgG_rep1_crosslinking_coverage_both_strand.bedgraph, /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/IgG_rep1_alignment_ends_coverage_pos_strand.bedgraph, /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/IgG_rep1_alignment_ends_coverage_neg_strand.bedgraph, /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/IgG_rep1_alignment_ends_coverage_both_strand.bedgraph
+    jobid: 28
+    wildcards: sample=IgG, replicate=rep1
+    threads: 4
+
+[Wed Jan 16 15:23:49 2019]
+Finished job 28.
+37 of 45 steps (82%) done
+
+[Wed Jan 16 15:23:49 2019]
+rule calculate_coverage:
+    input: /scratch/bi03/heylf/Marc/YY1/coverage/YY1_rep1_crosslinking_positions_sorted.bed, /scratch/bi03/heylf/Marc/YY1/coverage/YY1_rep1_alignment_ends_sorted.bed
+    output: /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/YY1_rep1_crosslinking_coverage_pos_strand.bedgraph, /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/YY1_rep1_crosslinking_coverage_neg_strand.bedgraph, /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/YY1_rep1_crosslinking_coverage_both_strand.bedgraph, /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/YY1_rep1_alignment_ends_coverage_pos_strand.bedgraph, /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/YY1_rep1_alignment_ends_coverage_neg_strand.bedgraph, /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/YY1_rep1_alignment_ends_coverage_both_strand.bedgraph
+    jobid: 15
+    wildcards: sample=YY1, replicate=rep1
+    threads: 4
+
+[Wed Jan 16 15:23:50 2019]
+Finished job 15.
+38 of 45 steps (84%) done
+
+[Wed Jan 16 15:23:50 2019]
+rule calculate_coverage_bigwig:
+    input: /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/IgG_rep1_crosslinking_coverage_both_strand.bedgraph, /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/IgG_rep1_alignment_ends_coverage_both_strand.bedgraph
+    output: /scratch/bi03/heylf/Marc/YY1/coverage/bigwig/IgG_rep1_crosslinking_coverage_both_strand.bigwig, /scratch/bi03/heylf/Marc/YY1/coverage/bigwig/IgG_rep1_alignment_ends_coverage_both_strand.bigwig
+    jobid: 8
+    wildcards: sample=IgG, replicate=rep1, type=both
+    threads: 4
+
+[Wed Jan 16 15:23:50 2019]
+Finished job 8.
+39 of 45 steps (87%) done
+
+[Wed Jan 16 15:23:50 2019]
+rule calculate_coverage_bigwig:
+    input: /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/YY1_rep1_crosslinking_coverage_both_strand.bedgraph, /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/YY1_rep1_alignment_ends_coverage_both_strand.bedgraph
+    output: /scratch/bi03/heylf/Marc/YY1/coverage/bigwig/YY1_rep1_crosslinking_coverage_both_strand.bigwig, /scratch/bi03/heylf/Marc/YY1/coverage/bigwig/YY1_rep1_alignment_ends_coverage_both_strand.bigwig
+    jobid: 1
+    wildcards: sample=YY1, replicate=rep1, type=both
+    threads: 4
+
+[Wed Jan 16 15:23:50 2019]
+Finished job 1.
+40 of 45 steps (89%) done
+
+[Wed Jan 16 15:23:50 2019]
+rule calculate_coverage_bigwig:
+    input: /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/YY1_rep1_crosslinking_coverage_neg_strand.bedgraph, /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/YY1_rep1_alignment_ends_coverage_neg_strand.bedgraph
+    output: /scratch/bi03/heylf/Marc/YY1/coverage/bigwig/YY1_rep1_crosslinking_coverage_neg_strand.bigwig, /scratch/bi03/heylf/Marc/YY1/coverage/bigwig/YY1_rep1_alignment_ends_coverage_neg_strand.bigwig
+    jobid: 6
+    wildcards: sample=YY1, replicate=rep1, type=neg
+    threads: 4
+
+[Wed Jan 16 15:23:50 2019]
+Finished job 6.
+41 of 45 steps (91%) done
+
+[Wed Jan 16 15:23:50 2019]
+rule calculate_coverage_bigwig:
+    input: /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/YY1_rep1_crosslinking_coverage_pos_strand.bedgraph, /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/YY1_rep1_alignment_ends_coverage_pos_strand.bedgraph
+    output: /scratch/bi03/heylf/Marc/YY1/coverage/bigwig/YY1_rep1_crosslinking_coverage_pos_strand.bigwig, /scratch/bi03/heylf/Marc/YY1/coverage/bigwig/YY1_rep1_alignment_ends_coverage_pos_strand.bigwig
+    jobid: 14
+    wildcards: sample=YY1, replicate=rep1, type=pos
+    threads: 4
+
+[Wed Jan 16 15:23:50 2019]
+Finished job 14.
+42 of 45 steps (93%) done
+
+[Wed Jan 16 15:23:50 2019]
+rule calculate_coverage_bigwig:
+    input: /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/IgG_rep1_crosslinking_coverage_pos_strand.bedgraph, /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/IgG_rep1_alignment_ends_coverage_pos_strand.bedgraph
+    output: /scratch/bi03/heylf/Marc/YY1/coverage/bigwig/IgG_rep1_crosslinking_coverage_pos_strand.bigwig, /scratch/bi03/heylf/Marc/YY1/coverage/bigwig/IgG_rep1_alignment_ends_coverage_pos_strand.bigwig
+    jobid: 10
+    wildcards: sample=IgG, replicate=rep1, type=pos
+    threads: 4
+
+[Wed Jan 16 15:23:50 2019]
+Finished job 10.
+43 of 45 steps (96%) done
+
+[Wed Jan 16 15:23:50 2019]
+rule calculate_coverage_bigwig:
+    input: /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/IgG_rep1_crosslinking_coverage_neg_strand.bedgraph, /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/IgG_rep1_alignment_ends_coverage_neg_strand.bedgraph
+    output: /scratch/bi03/heylf/Marc/YY1/coverage/bigwig/IgG_rep1_crosslinking_coverage_neg_strand.bigwig, /scratch/bi03/heylf/Marc/YY1/coverage/bigwig/IgG_rep1_alignment_ends_coverage_neg_strand.bigwig
+    jobid: 7
+    wildcards: sample=IgG, replicate=rep1, type=neg
+    threads: 4
+
+[Wed Jan 16 15:23:50 2019]
+Finished job 7.
+44 of 45 steps (98%) done
+
+[Wed Jan 16 15:23:50 2019]
+localrule all:
+    input: /scratch/bi03/heylf/Marc/YY1/mapping/YY1_rep1.bam, /scratch/bi03/heylf/Marc/YY1/mapping/IgG_rep1.bam, /scratch/bi03/heylf/Marc/YY1/mapping/YY1_rep1.bam.bai, /scratch/bi03/heylf/Marc/YY1/mapping/IgG_rep1.bam.bai, /scratch/bi03/heylf/Marc/YY1/multiqc/multiqc_report.html, /scratch/bi03/heylf/Marc/YY1/peakcalling/YY1_rep1_IgG_rep1_peaks_extended.bed, /scratch/bi03/heylf/Marc/YY1/annotation_peaks/YY1_rep1_IgG_rep1_binding_regions_intersecting_peaks.gtf, /scratch/bi03/heylf/Marc/YY1/coverage/bigwig/YY1_rep1_alignment_ends_coverage_pos_strand.bigwig, /scratch/bi03/heylf/Marc/YY1/coverage/bigwig/YY1_rep1_alignment_ends_coverage_neg_strand.bigwig, /scratch/bi03/heylf/Marc/YY1/coverage/bigwig/YY1_rep1_alignment_ends_coverage_both_strand.bigwig, /scratch/bi03/heylf/Marc/YY1/coverage/bigwig/IgG_rep1_alignment_ends_coverage_pos_strand.bigwig, /scratch/bi03/heylf/Marc/YY1/coverage/bigwig/IgG_rep1_alignment_ends_coverage_neg_strand.bigwig, /scratch/bi03/heylf/Marc/YY1/coverage/bigwig/IgG_rep1_alignment_ends_coverage_both_strand.bigwig, /scratch/bi03/heylf/Marc/YY1/motif_detection/YY1_rep1_IgG_rep1_meme_chip/meme-chip.html
+    jobid: 0
+
+[Wed Jan 16 15:23:50 2019]
+Finished job 0.
+45 of 45 steps (100%) done
+Complete log: /scratch/bi03/heylf/SalamiSnake_CLIP/.snakemake/log/2019-01-16T152343.545072.snakemake.log

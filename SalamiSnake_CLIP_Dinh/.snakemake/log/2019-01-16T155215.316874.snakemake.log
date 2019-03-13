@@ -1,0 +1,5 @@
+Building DAG of jobs...
+MissingInputException in line 18 of /scratch/bi03/heylf/SalamiSnake_CLIP/rules/FLASH/FLASH_preprocess.py:
+Missing input files for rule cutadapt_first_read_clip:
+/scratch/bi03/heylf/Marc/YY1/renaming/IgG_rep1_got_umis_unlocalized_check_r1.fastqsanger
+/scratch/bi03/heylf/Marc/YY1/renaming/IgG_rep1_got_umis_unlocalized_check_r2.fastqsanger

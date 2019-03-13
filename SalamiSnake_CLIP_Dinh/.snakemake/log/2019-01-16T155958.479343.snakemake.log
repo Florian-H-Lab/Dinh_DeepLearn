@@ -1,0 +1,707 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cluster nodes: 20
+Job counts:
+	count	jobs
+	1	all
+	2	calculate_coverage
+	6	calculate_coverage_bigwig
+	2	correct_bed_format_check
+	2	cutadapt_first_read_clip
+	2	deduplication
+	2	extract_alignment_ends
+	2	extract_crosslinking_position
+	1	extract_genomic_DNA_dreme
+	4	fastqc_after_adapter_removal
+	2	fastqc_after_dedup
+	2	fastqc_before_dedup
+	4	fastqc_beginning
+	2	filter_out_unlocalized_regions_for_later_genome_versions
+	2	indexing
+	1	intersect_binding_regions_with_peaks
+	2	mate_reads_fitlering
+	1	meme_chip
+	1	multiqc
+	1	peaks_extend_frontiers
+	1	pureclip
+	2	remove_tail
+	1	renaming
+	2	sort_beds
+	2	star
+	2	unique_reads_fitlering
+	52
+
+[Wed Jan 16 16:00:00 2019]
+rule renaming:
+    input: /scratch/bi03/heylf/Marc/YY1/UV_YY1_R1.fastq, /scratch/bi03/heylf/Marc/YY1/UV_YY1_R2.fastq, /scratch/bi03/heylf/Marc/YY1/UV_IgG_R1.fastq, /scratch/bi03/heylf/Marc/YY1/UV_IgG_R2.fastq
+    output: /scratch/bi03/heylf/Marc/YY1/renaming/YY1_rep1_r1.fastqsanger, /scratch/bi03/heylf/Marc/YY1/renaming/YY1_rep1_r2.fastqsanger, /scratch/bi03/heylf/Marc/YY1/renaming/IgG_rep1_r1.fastqsanger, /scratch/bi03/heylf/Marc/YY1/renaming/IgG_rep1_r2.fastqsanger, /scratch/bi03/heylf/Marc/YY1/renaming/renaming_log.txt
+    jobid: 39
+
+Submitted job 39 with external jobid 'Your job 5289448 ("SalamiSnake") has been submitted'.
+[Wed Jan 16 16:03:30 2019]
+Finished job 39.
+1 of 52 steps (2%) done
+
+[Wed Jan 16 16:03:30 2019]
+rule fastqc_beginning:
+    input: /scratch/bi03/heylf/Marc/YY1/renaming/IgG_rep1_r2.fastqsanger
+    output: /scratch/bi03/heylf/Marc/YY1/fastqc_beginning/IgG_rep1_r2.fastqsanger_fastqc.html, /scratch/bi03/heylf/Marc/YY1/fastqc_beginning/IgG_rep1_r2.fastqsanger_fastqc.zip
+    jobid: 22
+    wildcards: sample=IgG, replicate=rep1, pair=r2
+    threads: 2
+
+Submitted job 22 with external jobid 'Your job 5289464 ("SalamiSnake") has been submitted'.
+
+[Wed Jan 16 16:03:31 2019]
+rule fastqc_beginning:
+    input: /scratch/bi03/heylf/Marc/YY1/renaming/YY1_rep1_r1.fastqsanger
+    output: /scratch/bi03/heylf/Marc/YY1/fastqc_beginning/YY1_rep1_r1.fastqsanger_fastqc.html, /scratch/bi03/heylf/Marc/YY1/fastqc_beginning/YY1_rep1_r1.fastqsanger_fastqc.zip
+    jobid: 26
+    wildcards: sample=YY1, replicate=rep1, pair=r1
+    threads: 2
+
+Submitted job 26 with external jobid 'Your job 5289465 ("SalamiSnake") has been submitted'.
+
+[Wed Jan 16 16:03:32 2019]
+rule fastqc_beginning:
+    input: /scratch/bi03/heylf/Marc/YY1/renaming/YY1_rep1_r2.fastqsanger
+    output: /scratch/bi03/heylf/Marc/YY1/fastqc_beginning/YY1_rep1_r2.fastqsanger_fastqc.html, /scratch/bi03/heylf/Marc/YY1/fastqc_beginning/YY1_rep1_r2.fastqsanger_fastqc.zip
+    jobid: 23
+    wildcards: sample=YY1, replicate=rep1, pair=r2
+    threads: 2
+
+Submitted job 23 with external jobid 'Your job 5289466 ("SalamiSnake") has been submitted'.
+
+[Wed Jan 16 16:03:32 2019]
+rule fastqc_beginning:
+    input: /scratch/bi03/heylf/Marc/YY1/renaming/IgG_rep1_r1.fastqsanger
+    output: /scratch/bi03/heylf/Marc/YY1/fastqc_beginning/IgG_rep1_r1.fastqsanger_fastqc.html, /scratch/bi03/heylf/Marc/YY1/fastqc_beginning/IgG_rep1_r1.fastqsanger_fastqc.zip
+    jobid: 20
+    wildcards: sample=IgG, replicate=rep1, pair=r1
+    threads: 2
+
+Submitted job 20 with external jobid 'Your job 5289467 ("SalamiSnake") has been submitted'.
+
+[Wed Jan 16 16:03:32 2019]
+rule cutadapt_first_read_clip:
+    input: /scratch/bi03/heylf/Marc/YY1/renaming/IgG_rep1_r1.fastqsanger, /scratch/bi03/heylf/Marc/YY1/renaming/IgG_rep1_r2.fastqsanger
+    output: /scratch/bi03/heylf/Marc/YY1/cutadapt/IgG_rep1_r1.fastqsanger, /scratch/bi03/heylf/Marc/YY1/cutadapt/IgG_rep1_r2.fastqsanger, /scratch/bi03/heylf/Marc/YY1/cutadapt/IgG_rep1.txt
+    jobid: 44
+    wildcards: sample=IgG, replicate=rep1
+    threads: 2
+
+Submitted job 44 with external jobid 'Your job 5289468 ("SalamiSnake") has been submitted'.
+
+[Wed Jan 16 16:03:33 2019]
+rule cutadapt_first_read_clip:
+    input: /scratch/bi03/heylf/Marc/YY1/renaming/YY1_rep1_r1.fastqsanger, /scratch/bi03/heylf/Marc/YY1/renaming/YY1_rep1_r2.fastqsanger
+    output: /scratch/bi03/heylf/Marc/YY1/cutadapt/YY1_rep1_r1.fastqsanger, /scratch/bi03/heylf/Marc/YY1/cutadapt/YY1_rep1_r2.fastqsanger, /scratch/bi03/heylf/Marc/YY1/cutadapt/YY1_rep1.txt
+    jobid: 43
+    wildcards: sample=YY1, replicate=rep1
+    threads: 2
+
+Submitted job 43 with external jobid 'Your job 5289469 ("SalamiSnake") has been submitted'.
+[Wed Jan 16 16:04:31 2019]
+Finished job 22.
+2 of 52 steps (4%) done
+[Wed Jan 16 16:04:31 2019]
+Finished job 20.
+3 of 52 steps (6%) done
+[Wed Jan 16 16:04:41 2019]
+Finished job 44.
+4 of 52 steps (8%) done
+
+[Wed Jan 16 16:04:41 2019]
+rule remove_tail:
+    input: /scratch/bi03/heylf/Marc/YY1/cutadapt/IgG_rep1_r1.fastqsanger, /scratch/bi03/heylf/Marc/YY1/cutadapt/IgG_rep1_r2.fastqsanger
+    output: /scratch/bi03/heylf/Marc/YY1/remove_tail/IgG_rep1_r1_trimmed.fastqsanger, /scratch/bi03/heylf/Marc/YY1/remove_tail/IgG_rep1_r2_trimmed.fastqsanger
+    jobid: 33
+    wildcards: sample=IgG, replicate=rep1
+    threads: 2
+
+Submitted job 33 with external jobid 'Your job 5289476 ("SalamiSnake") has been submitted'.
+[Wed Jan 16 16:06:11 2019]
+Finished job 33.
+5 of 52 steps (10%) done
+
+[Wed Jan 16 16:06:11 2019]
+rule fastqc_after_adapter_removal:
+    input: /scratch/bi03/heylf/Marc/YY1/remove_tail/IgG_rep1_r1_trimmed.fastqsanger
+    output: /scratch/bi03/heylf/Marc/YY1/fastqc_after_trimming/IgG_rep1_r1_trimmed.fastqsanger_fastqc.html, /scratch/bi03/heylf/Marc/YY1/fastqc_after_trimming/IgG_rep1_r1_trimmed.fastqsanger_fastqc.zip
+    jobid: 17
+    wildcards: sample=IgG, replicate=rep1, pair=r1
+    threads: 2
+
+Submitted job 17 with external jobid 'Your job 5289483 ("SalamiSnake") has been submitted'.
+
+[Wed Jan 16 16:06:11 2019]
+rule star:
+    input: /scratch/bi03/heylf/genomes/mm10/sjdbList.fromGTF.out.tab, /scratch/bi03/heylf/Marc/YY1/remove_tail/IgG_rep1_r1_trimmed.fastqsanger, /scratch/bi03/heylf/Marc/YY1/remove_tail/IgG_rep1_r2_trimmed.fastqsanger
+    output: /scratch/bi03/heylf/Marc/YY1/mapping/IgG_rep1.txt, /scratch/bi03/heylf/Marc/YY1/mapping/IgG_rep1.bam, /scratch/bi03/heylf/Marc/YY1/mapping/IgG_rep1_Log.final.out
+    jobid: 14
+    wildcards: sample=IgG, replicate=rep1
+    threads: 4
+
+Submitted job 14 with external jobid 'Your job 5289484 ("STAR") has been submitted'.
+
+[Wed Jan 16 16:06:12 2019]
+rule fastqc_after_adapter_removal:
+    input: /scratch/bi03/heylf/Marc/YY1/remove_tail/IgG_rep1_r2_trimmed.fastqsanger
+    output: /scratch/bi03/heylf/Marc/YY1/fastqc_after_trimming/IgG_rep1_r2_trimmed.fastqsanger_fastqc.html, /scratch/bi03/heylf/Marc/YY1/fastqc_after_trimming/IgG_rep1_r2_trimmed.fastqsanger_fastqc.zip
+    jobid: 24
+    wildcards: sample=IgG, replicate=rep1, pair=r2
+    threads: 2
+
+Submitted job 24 with external jobid 'Your job 5289485 ("SalamiSnake") has been submitted'.
+[Wed Jan 16 16:06:31 2019]
+Finished job 23.
+6 of 52 steps (12%) done
+[Wed Jan 16 16:07:02 2019]
+Finished job 26.
+7 of 52 steps (13%) done
+[Wed Jan 16 16:07:03 2019]
+Finished job 24.
+8 of 52 steps (15%) done
+[Wed Jan 16 16:07:33 2019]
+Finished job 17.
+9 of 52 steps (17%) done
+[Wed Jan 16 16:15:25 2019]
+Finished job 14.
+10 of 52 steps (19%) done
+
+[Wed Jan 16 16:15:25 2019]
+rule indexing:
+    input: /scratch/bi03/heylf/Marc/YY1/mapping/IgG_rep1.bam
+    output: /scratch/bi03/heylf/Marc/YY1/mapping/IgG_rep1.bam.bai
+    jobid: 2
+    wildcards: sample=IgG, replicate=rep1
+    threads: 2
+
+Submitted job 2 with external jobid 'Your job 5289525 ("SalamiSnake") has been submitted'.
+
+[Wed Jan 16 16:15:26 2019]
+rule unique_reads_fitlering:
+    input: /scratch/bi03/heylf/Marc/YY1/mapping/IgG_rep1.bam
+    output: /scratch/bi03/heylf/Marc/YY1/preprocessing_for_umi/IgG_rep1_unique_reads_fitlering.bam
+    jobid: 46
+    wildcards: sample=IgG, replicate=rep1
+    threads: 2
+
+Submitted job 46 with external jobid 'Your job 5289526 ("SalamiSnake") has been submitted'.
+[Wed Jan 16 16:15:45 2019]
+Finished job 43.
+11 of 52 steps (21%) done
+
+[Wed Jan 16 16:15:45 2019]
+rule remove_tail:
+    input: /scratch/bi03/heylf/Marc/YY1/cutadapt/YY1_rep1_r1.fastqsanger, /scratch/bi03/heylf/Marc/YY1/cutadapt/YY1_rep1_r2.fastqsanger
+    output: /scratch/bi03/heylf/Marc/YY1/remove_tail/YY1_rep1_r1_trimmed.fastqsanger, /scratch/bi03/heylf/Marc/YY1/remove_tail/YY1_rep1_r2_trimmed.fastqsanger
+    jobid: 30
+    wildcards: sample=YY1, replicate=rep1
+    threads: 2
+
+Submitted job 30 with external jobid 'Your job 5289529 ("SalamiSnake") has been submitted'.
+[Wed Jan 16 16:15:55 2019]
+Finished job 2.
+12 of 52 steps (23%) done
+[Wed Jan 16 16:16:46 2019]
+Finished job 46.
+13 of 52 steps (25%) done
+
+[Wed Jan 16 16:16:46 2019]
+rule filter_out_unlocalized_regions_for_later_genome_versions:
+    input: /scratch/bi03/heylf/Marc/YY1/preprocessing_for_umi/IgG_rep1_unique_reads_fitlering.bam
+    output: /scratch/bi03/heylf/Marc/YY1/preprocessing_for_umi/IgG_rep1_got_umis_unlocalized_check.bam
+    jobid: 38
+    wildcards: sample=IgG, replicate=rep1
+    threads: 2
+
+Submitted job 38 with external jobid 'Your job 5289533 ("SalamiSnake") has been submitted'.
+[Wed Jan 16 16:17:16 2019]
+Finished job 38.
+14 of 52 steps (27%) done
+
+[Wed Jan 16 16:17:16 2019]
+rule fastqc_before_dedup:
+    input: /scratch/bi03/heylf/Marc/YY1/preprocessing_for_umi/IgG_rep1_got_umis_unlocalized_check.bam
+    output: /scratch/bi03/heylf/Marc/YY1/fastqc_before_deduplication/IgG_rep1_got_umis_unlocalized_check_fastqc.html
+    jobid: 19
+    wildcards: sample=IgG, replicate=rep1
+    threads: 2
+
+Submitted job 19 with external jobid 'Your job 5289538 ("SalamiSnake") has been submitted'.
+
+[Wed Jan 16 16:17:17 2019]
+rule deduplication:
+    input: /scratch/bi03/heylf/Marc/YY1/preprocessing_for_umi/IgG_rep1_got_umis_unlocalized_check.bam
+    output: /scratch/bi03/heylf/Marc/YY1/deduplication/IgG_rep1.bam, /scratch/bi03/heylf/Marc/YY1/deduplication/IgG_rep1_log.txt, /scratch/bi03/heylf/Marc/YY1/deduplication/IgG_rep1_sorted.bam
+    jobid: 37
+    wildcards: sample=IgG, replicate=rep1
+    threads: 2
+
+Submitted job 37 with external jobid 'Your job 5289539 ("UMI-dedup") has been submitted'.
+[Wed Jan 16 16:18:49 2019]
+Finished job 19.
+15 of 52 steps (29%) done
+[Wed Jan 16 16:18:52 2019]
+Finished job 37.
+16 of 52 steps (31%) done
+
+[Wed Jan 16 16:18:52 2019]
+rule extract_alignment_ends:
+    input: /scratch/bi03/heylf/Marc/YY1/deduplication/IgG_rep1_sorted.bam
+    output: /scratch/bi03/heylf/Marc/YY1/coverage/IgG_rep1_alignment_ends.bed
+    jobid: 50
+    wildcards: sample=IgG, replicate=rep1
+    threads: 2
+
+Submitted job 50 with external jobid 'Your job 5289545 ("SalamiSnake") has been submitted'.
+
+[Wed Jan 16 16:18:54 2019]
+rule fastqc_after_dedup:
+    input: /scratch/bi03/heylf/Marc/YY1/deduplication/IgG_rep1.bam
+    output: /scratch/bi03/heylf/Marc/YY1/fastqc_after_deduplication/IgG_rep1_fastqc.html
+    jobid: 18
+    wildcards: sample=IgG, replicate=rep1
+    threads: 2
+
+Submitted job 18 with external jobid 'Your job 5289546 ("SalamiSnake") has been submitted'.
+
+[Wed Jan 16 16:18:56 2019]
+rule mate_reads_fitlering:
+    input: /scratch/bi03/heylf/Marc/YY1/deduplication/IgG_rep1_sorted.bam
+    output: /scratch/bi03/heylf/Marc/YY1/mate_filter/IgG_rep1.bam, /scratch/bi03/heylf/Marc/YY1/mate_filter/IgG_rep1_sorted.bam, /scratch/bi03/heylf/Marc/YY1/mate_filter/IgG_rep1_sorted.bam.bai
+    jobid: 36
+    wildcards: sample=IgG, replicate=rep1
+    threads: 2
+
+Submitted job 36 with external jobid 'Your job 5289547 ("SalamiSnake") has been submitted'.
+[Wed Jan 16 16:19:12 2019]
+Finished job 30.
+17 of 52 steps (33%) done
+
+[Wed Jan 16 16:19:12 2019]
+rule fastqc_after_adapter_removal:
+    input: /scratch/bi03/heylf/Marc/YY1/remove_tail/YY1_rep1_r1_trimmed.fastqsanger
+    output: /scratch/bi03/heylf/Marc/YY1/fastqc_after_trimming/YY1_rep1_r1_trimmed.fastqsanger_fastqc.html, /scratch/bi03/heylf/Marc/YY1/fastqc_after_trimming/YY1_rep1_r1_trimmed.fastqsanger_fastqc.zip
+    jobid: 21
+    wildcards: sample=YY1, replicate=rep1, pair=r1
+    threads: 2
+
+Submitted job 21 with external jobid 'Your job 5289550 ("SalamiSnake") has been submitted'.
+
+[Wed Jan 16 16:19:12 2019]
+rule fastqc_after_adapter_removal:
+    input: /scratch/bi03/heylf/Marc/YY1/remove_tail/YY1_rep1_r2_trimmed.fastqsanger
+    output: /scratch/bi03/heylf/Marc/YY1/fastqc_after_trimming/YY1_rep1_r2_trimmed.fastqsanger_fastqc.html, /scratch/bi03/heylf/Marc/YY1/fastqc_after_trimming/YY1_rep1_r2_trimmed.fastqsanger_fastqc.zip
+    jobid: 27
+    wildcards: sample=YY1, replicate=rep1, pair=r2
+    threads: 2
+
+Submitted job 27 with external jobid 'Your job 5289551 ("SalamiSnake") has been submitted'.
+
+[Wed Jan 16 16:19:12 2019]
+rule star:
+    input: /scratch/bi03/heylf/genomes/mm10/sjdbList.fromGTF.out.tab, /scratch/bi03/heylf/Marc/YY1/remove_tail/YY1_rep1_r1_trimmed.fastqsanger, /scratch/bi03/heylf/Marc/YY1/remove_tail/YY1_rep1_r2_trimmed.fastqsanger
+    output: /scratch/bi03/heylf/Marc/YY1/mapping/YY1_rep1.txt, /scratch/bi03/heylf/Marc/YY1/mapping/YY1_rep1.bam, /scratch/bi03/heylf/Marc/YY1/mapping/YY1_rep1_Log.final.out
+    jobid: 10
+    wildcards: sample=YY1, replicate=rep1
+    threads: 4
+
+Submitted job 10 with external jobid 'Your job 5289552 ("STAR") has been submitted'.
+[Wed Jan 16 16:19:32 2019]
+Finished job 50.
+18 of 52 steps (35%) done
+
+[Wed Jan 16 16:19:33 2019]
+rule extract_crosslinking_position:
+    input: /scratch/bi03/heylf/Marc/YY1/coverage/IgG_rep1_alignment_ends.bed
+    output: /scratch/bi03/heylf/Marc/YY1/coverage/IgG_rep1_crosslinking_positions.bed
+    jobid: 49
+    wildcards: sample=IgG, replicate=rep1
+    threads: 2
+
+[Wed Jan 16 16:19:33 2019]
+Finished job 18.
+19 of 52 steps (37%) done
+Submitted job 49 with external jobid 'Your job 5289556 ("SalamiSnake") has been submitted'.
+[Wed Jan 16 16:19:33 2019]
+Finished job 36.
+20 of 52 steps (38%) done
+[Wed Jan 16 16:21:15 2019]
+Finished job 49.
+21 of 52 steps (40%) done
+
+[Wed Jan 16 16:21:15 2019]
+rule correct_bed_format_check:
+    input: /scratch/bi03/heylf/Marc/YY1/coverage/IgG_rep1_crosslinking_positions.bed, /scratch/bi03/heylf/Marc/YY1/coverage/IgG_rep1_alignment_ends.bed
+    output: /scratch/bi03/heylf/Marc/YY1/coverage/IgG_rep1_crosslinking_positions_check.bed, /scratch/bi03/heylf/Marc/YY1/coverage/IgG_rep1_alignment_ends_check.bed
+    jobid: 45
+    wildcards: sample=IgG, replicate=rep1
+    threads: 2
+
+Submitted job 45 with external jobid 'Your job 5289564 ("SalamiSnake") has been submitted'.
+[Wed Jan 16 16:21:45 2019]
+Finished job 21.
+22 of 52 steps (42%) done
+[Wed Jan 16 16:21:46 2019]
+Finished job 45.
+23 of 52 steps (44%) done
+
+[Wed Jan 16 16:21:46 2019]
+rule sort_beds:
+    input: /scratch/bi03/heylf/Marc/YY1/coverage/IgG_rep1_crosslinking_positions_check.bed, /scratch/bi03/heylf/Marc/YY1/coverage/IgG_rep1_alignment_ends_check.bed
+    output: /scratch/bi03/heylf/Marc/YY1/coverage/IgG_rep1_crosslinking_positions_sorted.bed, /scratch/bi03/heylf/Marc/YY1/coverage/IgG_rep1_alignment_ends_sorted.bed
+    jobid: 34
+    wildcards: sample=IgG, replicate=rep1
+    threads: 2
+
+Submitted job 34 with external jobid 'Your job 5289566 ("BedSort") has been submitted'.
+[Wed Jan 16 16:22:06 2019]
+Finished job 27.
+24 of 52 steps (46%) done
+Waiting at most 60 seconds for missing files.
+[Wed Jan 16 16:22:16 2019]
+Finished job 34.
+25 of 52 steps (48%) done
+
+[Wed Jan 16 16:22:16 2019]
+rule calculate_coverage:
+    input: /scratch/bi03/heylf/Marc/YY1/coverage/IgG_rep1_crosslinking_positions_sorted.bed, /scratch/bi03/heylf/Marc/YY1/coverage/IgG_rep1_alignment_ends_sorted.bed
+    output: /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/IgG_rep1_crosslinking_coverage_pos_strand.bedgraph, /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/IgG_rep1_crosslinking_coverage_neg_strand.bedgraph, /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/IgG_rep1_crosslinking_coverage_both_strand.bedgraph, /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/IgG_rep1_alignment_ends_coverage_pos_strand.bedgraph, /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/IgG_rep1_alignment_ends_coverage_neg_strand.bedgraph, /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/IgG_rep1_alignment_ends_coverage_both_strand.bedgraph
+    jobid: 15
+    wildcards: sample=IgG, replicate=rep1
+    threads: 4
+
+Submitted job 15 with external jobid 'Your job 5289571 ("BedGraph") has been submitted'.
+[Wed Jan 16 16:26:08 2019]
+Finished job 15.
+26 of 52 steps (50%) done
+
+[Wed Jan 16 16:26:08 2019]
+rule calculate_coverage_bigwig:
+    input: /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/IgG_rep1_crosslinking_coverage_both_strand.bedgraph, /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/IgG_rep1_alignment_ends_coverage_both_strand.bedgraph
+    output: /scratch/bi03/heylf/Marc/YY1/coverage/bigwig/IgG_rep1_crosslinking_coverage_both_strand.bigwig, /scratch/bi03/heylf/Marc/YY1/coverage/bigwig/IgG_rep1_alignment_ends_coverage_both_strand.bigwig
+    jobid: 1
+    wildcards: sample=IgG, replicate=rep1, type=both
+    threads: 4
+
+Submitted job 1 with external jobid 'Your job 5289588 ("BigWig") has been submitted'.
+
+[Wed Jan 16 16:26:08 2019]
+rule calculate_coverage_bigwig:
+    input: /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/IgG_rep1_crosslinking_coverage_pos_strand.bedgraph, /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/IgG_rep1_alignment_ends_coverage_pos_strand.bedgraph
+    output: /scratch/bi03/heylf/Marc/YY1/coverage/bigwig/IgG_rep1_crosslinking_coverage_pos_strand.bigwig, /scratch/bi03/heylf/Marc/YY1/coverage/bigwig/IgG_rep1_alignment_ends_coverage_pos_strand.bigwig
+    jobid: 5
+    wildcards: sample=IgG, replicate=rep1, type=pos
+    threads: 4
+
+Submitted job 5 with external jobid 'Your job 5289589 ("BigWig") has been submitted'.
+
+[Wed Jan 16 16:26:08 2019]
+rule calculate_coverage_bigwig:
+    input: /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/IgG_rep1_crosslinking_coverage_neg_strand.bedgraph, /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/IgG_rep1_alignment_ends_coverage_neg_strand.bedgraph
+    output: /scratch/bi03/heylf/Marc/YY1/coverage/bigwig/IgG_rep1_crosslinking_coverage_neg_strand.bigwig, /scratch/bi03/heylf/Marc/YY1/coverage/bigwig/IgG_rep1_alignment_ends_coverage_neg_strand.bigwig
+    jobid: 11
+    wildcards: sample=IgG, replicate=rep1, type=neg
+    threads: 4
+
+Submitted job 11 with external jobid 'Your job 5289590 ("BigWig") has been submitted'.
+Waiting at most 60 seconds for missing files.
+[Wed Jan 16 16:26:38 2019]
+Finished job 1.
+27 of 52 steps (52%) done
+[Wed Jan 16 16:26:38 2019]
+Finished job 5.
+28 of 52 steps (54%) done
+[Wed Jan 16 16:26:38 2019]
+Finished job 11.
+29 of 52 steps (56%) done
+[Wed Jan 16 16:46:55 2019]
+Finished job 10.
+30 of 52 steps (58%) done
+
+[Wed Jan 16 16:46:55 2019]
+rule indexing:
+    input: /scratch/bi03/heylf/Marc/YY1/mapping/YY1_rep1.bam
+    output: /scratch/bi03/heylf/Marc/YY1/mapping/YY1_rep1.bam.bai
+    jobid: 3
+    wildcards: sample=YY1, replicate=rep1
+    threads: 2
+
+Submitted job 3 with external jobid 'Your job 5289693 ("SalamiSnake") has been submitted'.
+
+[Wed Jan 16 16:46:55 2019]
+rule unique_reads_fitlering:
+    input: /scratch/bi03/heylf/Marc/YY1/mapping/YY1_rep1.bam
+    output: /scratch/bi03/heylf/Marc/YY1/preprocessing_for_umi/YY1_rep1_unique_reads_fitlering.bam
+    jobid: 47
+    wildcards: sample=YY1, replicate=rep1
+    threads: 2
+
+Submitted job 47 with external jobid 'Your job 5289694 ("SalamiSnake") has been submitted'.
+[Wed Jan 16 16:47:55 2019]
+Finished job 3.
+31 of 52 steps (60%) done
+[Wed Jan 16 16:55:26 2019]
+Finished job 47.
+32 of 52 steps (62%) done
+
+[Wed Jan 16 16:55:26 2019]
+rule filter_out_unlocalized_regions_for_later_genome_versions:
+    input: /scratch/bi03/heylf/Marc/YY1/preprocessing_for_umi/YY1_rep1_unique_reads_fitlering.bam
+    output: /scratch/bi03/heylf/Marc/YY1/preprocessing_for_umi/YY1_rep1_got_umis_unlocalized_check.bam
+    jobid: 41
+    wildcards: sample=YY1, replicate=rep1
+    threads: 2
+
+Submitted job 41 with external jobid 'Your job 5289745 ("SalamiSnake") has been submitted'.
+[Wed Jan 16 17:00:06 2019]
+Finished job 41.
+33 of 52 steps (63%) done
+
+[Wed Jan 16 17:00:06 2019]
+rule deduplication:
+    input: /scratch/bi03/heylf/Marc/YY1/preprocessing_for_umi/YY1_rep1_got_umis_unlocalized_check.bam
+    output: /scratch/bi03/heylf/Marc/YY1/deduplication/YY1_rep1.bam, /scratch/bi03/heylf/Marc/YY1/deduplication/YY1_rep1_log.txt, /scratch/bi03/heylf/Marc/YY1/deduplication/YY1_rep1_sorted.bam
+    jobid: 40
+    wildcards: sample=YY1, replicate=rep1
+    threads: 2
+
+Submitted job 40 with external jobid 'Your job 5289770 ("UMI-dedup") has been submitted'.
+
+[Wed Jan 16 17:00:06 2019]
+rule fastqc_before_dedup:
+    input: /scratch/bi03/heylf/Marc/YY1/preprocessing_for_umi/YY1_rep1_got_umis_unlocalized_check.bam
+    output: /scratch/bi03/heylf/Marc/YY1/fastqc_before_deduplication/YY1_rep1_got_umis_unlocalized_check_fastqc.html
+    jobid: 28
+    wildcards: sample=YY1, replicate=rep1
+    threads: 2
+
+Submitted job 28 with external jobid 'Your job 5289771 ("SalamiSnake") has been submitted'.
+[Wed Jan 16 17:02:57 2019]
+Finished job 28.
+34 of 52 steps (65%) done
+[Wed Jan 16 17:11:28 2019]
+Finished job 40.
+35 of 52 steps (67%) done
+
+[Wed Jan 16 17:11:28 2019]
+rule fastqc_after_dedup:
+    input: /scratch/bi03/heylf/Marc/YY1/deduplication/YY1_rep1.bam
+    output: /scratch/bi03/heylf/Marc/YY1/fastqc_after_deduplication/YY1_rep1_fastqc.html
+    jobid: 25
+    wildcards: sample=YY1, replicate=rep1
+    threads: 2
+
+Submitted job 25 with external jobid 'Your job 5289828 ("SalamiSnake") has been submitted'.
+
+[Wed Jan 16 17:11:28 2019]
+rule extract_alignment_ends:
+    input: /scratch/bi03/heylf/Marc/YY1/deduplication/YY1_rep1_sorted.bam
+    output: /scratch/bi03/heylf/Marc/YY1/coverage/YY1_rep1_alignment_ends.bed
+    jobid: 52
+    wildcards: sample=YY1, replicate=rep1
+    threads: 2
+
+Submitted job 52 with external jobid 'Your job 5289829 ("SalamiSnake") has been submitted'.
+
+[Wed Jan 16 17:11:28 2019]
+rule mate_reads_fitlering:
+    input: /scratch/bi03/heylf/Marc/YY1/deduplication/YY1_rep1_sorted.bam
+    output: /scratch/bi03/heylf/Marc/YY1/mate_filter/YY1_rep1.bam, /scratch/bi03/heylf/Marc/YY1/mate_filter/YY1_rep1_sorted.bam, /scratch/bi03/heylf/Marc/YY1/mate_filter/YY1_rep1_sorted.bam.bai
+    jobid: 35
+    wildcards: sample=YY1, replicate=rep1
+    threads: 2
+
+Submitted job 35 with external jobid 'Your job 5289830 ("SalamiSnake") has been submitted'.
+[Wed Jan 16 17:12:28 2019]
+Finished job 25.
+36 of 52 steps (69%) done
+
+[Wed Jan 16 17:12:28 2019]
+rule multiqc:
+    input: /scratch/bi03/heylf/Marc/YY1/fastqc_beginning/YY1_rep1_r1.fastqsanger_fastqc.html, /scratch/bi03/heylf/Marc/YY1/fastqc_beginning/YY1_rep1_r2.fastqsanger_fastqc.html, /scratch/bi03/heylf/Marc/YY1/fastqc_beginning/IgG_rep1_r1.fastqsanger_fastqc.html, /scratch/bi03/heylf/Marc/YY1/fastqc_beginning/IgG_rep1_r2.fastqsanger_fastqc.html, /scratch/bi03/heylf/Marc/YY1/fastqc_after_trimming/YY1_rep1_r1_trimmed.fastqsanger_fastqc.html, /scratch/bi03/heylf/Marc/YY1/fastqc_after_trimming/YY1_rep1_r2_trimmed.fastqsanger_fastqc.html, /scratch/bi03/heylf/Marc/YY1/fastqc_after_trimming/IgG_rep1_r1_trimmed.fastqsanger_fastqc.html, /scratch/bi03/heylf/Marc/YY1/fastqc_after_trimming/IgG_rep1_r2_trimmed.fastqsanger_fastqc.html, /scratch/bi03/heylf/Marc/YY1/fastqc_before_deduplication/YY1_rep1_got_umis_unlocalized_check_fastqc.html, /scratch/bi03/heylf/Marc/YY1/fastqc_before_deduplication/IgG_rep1_got_umis_unlocalized_check_fastqc.html, /scratch/bi03/heylf/Marc/YY1/fastqc_after_deduplication/YY1_rep1_fastqc.html, /scratch/bi03/heylf/Marc/YY1/fastqc_after_deduplication/IgG_rep1_fastqc.html, /scratch/bi03/heylf/Marc/YY1/mapping/YY1_rep1_Log.final.out, /scratch/bi03/heylf/Marc/YY1/mapping/IgG_rep1_Log.final.out
+    output: /scratch/bi03/heylf/Marc/YY1/multiqc/multiqc_report.html
+    jobid: 6
+    threads: 2
+
+Waiting at most 60 seconds for missing files.
+Submitted job 6 with external jobid 'Your job 5289834 ("SalamiSnake") has been submitted'.
+[Wed Jan 16 17:12:29 2019]
+Finished job 35.
+37 of 52 steps (71%) done
+
+[Wed Jan 16 17:12:29 2019]
+rule pureclip:
+    input: /scratch/bi03/heylf/Marc/YY1/mate_filter/YY1_rep1_sorted.bam, /scratch/bi03/heylf/Marc/YY1/mate_filter/YY1_rep1_sorted.bam.bai, /scratch/bi03/heylf/Marc/YY1/mate_filter/IgG_rep1_sorted.bam, /scratch/bi03/heylf/Marc/YY1/mate_filter/IgG_rep1_sorted.bam.bai, /scratch/bi03/heylf/genomes/mm10/mm10.fa
+    output: /scratch/bi03/heylf/Marc/YY1/peakcalling/YY1_rep1_IgG_rep1_crosslinkind_sites.bed, /scratch/bi03/heylf/Marc/YY1/peakcalling/YY1_rep1_IgG_rep1_binding_regions.bed
+    jobid: 16
+    wildcards: sample_exp=YY1, replicate_exp=rep1, sample_ctl=IgG, replicate_ctl=rep1
+    threads: 10
+
+Submitted job 16 with external jobid 'Your job 5289835 ("PureCLIP") has been submitted'.
+Waiting at most 60 seconds for missing files.
+[Wed Jan 16 17:13:29 2019]
+Finished job 6.
+38 of 52 steps (73%) done
+[Wed Jan 16 17:15:29 2019]
+Finished job 52.
+39 of 52 steps (75%) done
+
+[Wed Jan 16 17:15:29 2019]
+rule extract_crosslinking_position:
+    input: /scratch/bi03/heylf/Marc/YY1/coverage/YY1_rep1_alignment_ends.bed
+    output: /scratch/bi03/heylf/Marc/YY1/coverage/YY1_rep1_crosslinking_positions.bed
+    jobid: 51
+    wildcards: sample=YY1, replicate=rep1
+    threads: 2
+
+Submitted job 51 with external jobid 'Your job 5289849 ("SalamiSnake") has been submitted'.
+[Wed Jan 16 17:16:59 2019]
+Finished job 51.
+40 of 52 steps (77%) done
+
+[Wed Jan 16 17:16:59 2019]
+rule correct_bed_format_check:
+    input: /scratch/bi03/heylf/Marc/YY1/coverage/YY1_rep1_crosslinking_positions.bed, /scratch/bi03/heylf/Marc/YY1/coverage/YY1_rep1_alignment_ends.bed
+    output: /scratch/bi03/heylf/Marc/YY1/coverage/YY1_rep1_crosslinking_positions_check.bed, /scratch/bi03/heylf/Marc/YY1/coverage/YY1_rep1_alignment_ends_check.bed
+    jobid: 48
+    wildcards: sample=YY1, replicate=rep1
+    threads: 2
+
+Submitted job 48 with external jobid 'Your job 5289857 ("SalamiSnake") has been submitted'.
+[Wed Jan 16 17:17:30 2019]
+Finished job 48.
+41 of 52 steps (79%) done
+
+[Wed Jan 16 17:17:30 2019]
+rule sort_beds:
+    input: /scratch/bi03/heylf/Marc/YY1/coverage/YY1_rep1_crosslinking_positions_check.bed, /scratch/bi03/heylf/Marc/YY1/coverage/YY1_rep1_alignment_ends_check.bed
+    output: /scratch/bi03/heylf/Marc/YY1/coverage/YY1_rep1_crosslinking_positions_sorted.bed, /scratch/bi03/heylf/Marc/YY1/coverage/YY1_rep1_alignment_ends_sorted.bed
+    jobid: 42
+    wildcards: sample=YY1, replicate=rep1
+    threads: 2
+
+Submitted job 42 with external jobid 'Your job 5289862 ("BedSort") has been submitted'.
+[Wed Jan 16 17:18:00 2019]
+Finished job 42.
+42 of 52 steps (81%) done
+
+[Wed Jan 16 17:18:00 2019]
+rule calculate_coverage:
+    input: /scratch/bi03/heylf/Marc/YY1/coverage/YY1_rep1_crosslinking_positions_sorted.bed, /scratch/bi03/heylf/Marc/YY1/coverage/YY1_rep1_alignment_ends_sorted.bed
+    output: /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/YY1_rep1_crosslinking_coverage_pos_strand.bedgraph, /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/YY1_rep1_crosslinking_coverage_neg_strand.bedgraph, /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/YY1_rep1_crosslinking_coverage_both_strand.bedgraph, /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/YY1_rep1_alignment_ends_coverage_pos_strand.bedgraph, /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/YY1_rep1_alignment_ends_coverage_neg_strand.bedgraph, /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/YY1_rep1_alignment_ends_coverage_both_strand.bedgraph
+    jobid: 29
+    wildcards: sample=YY1, replicate=rep1
+    threads: 4
+
+Submitted job 29 with external jobid 'Your job 5289863 ("BedGraph") has been submitted'.
+[Wed Jan 16 17:21:37 2019]
+Finished job 16.
+43 of 52 steps (83%) done
+
+[Wed Jan 16 17:21:37 2019]
+rule peaks_extend_frontiers:
+    input: /scratch/bi03/heylf/Marc/YY1/peakcalling/YY1_rep1_IgG_rep1_binding_regions.bed, /scratch/bi03/heylf/genomes/mm10/mm10_chr_sizes.txt
+    output: /scratch/bi03/heylf/Marc/YY1/peakcalling/YY1_rep1_IgG_rep1_peaks_extended.bed
+    jobid: 4
+    wildcards: sample_exp=YY1, replicate_exp=rep1, sample_ctl=IgG, replicate_ctl=rep1
+    threads: 2
+
+[Wed Jan 16 17:21:37 2019]
+Finished job 29.
+44 of 52 steps (85%) done
+Submitted job 4 with external jobid 'Your job 5289878 ("SalamiSnake") has been submitted'.
+
+[Wed Jan 16 17:21:38 2019]
+rule intersect_binding_regions_with_peaks:
+    input: /scratch/bi03/heylf/Marc/YY1/peakcalling/YY1_rep1_IgG_rep1_binding_regions.bed, /scratch/bi03/heylf/genomes/mm10/MM_GRCm38.92.changedchrname.gtf
+    output: /scratch/bi03/heylf/Marc/YY1/annotation_peaks/YY1_rep1_IgG_rep1_binding_regions_intersecting_peaks.gtf
+    jobid: 7
+    wildcards: sample_exp=YY1, replicate_exp=rep1, sample_ctl=IgG, replicate_ctl=rep1
+    threads: 2
+
+Submitted job 7 with external jobid 'Your job 5289879 ("SalamiSnake") has been submitted'.
+
+[Wed Jan 16 17:21:38 2019]
+rule calculate_coverage_bigwig:
+    input: /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/YY1_rep1_crosslinking_coverage_neg_strand.bedgraph, /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/YY1_rep1_alignment_ends_coverage_neg_strand.bedgraph
+    output: /scratch/bi03/heylf/Marc/YY1/coverage/bigwig/YY1_rep1_crosslinking_coverage_neg_strand.bigwig, /scratch/bi03/heylf/Marc/YY1/coverage/bigwig/YY1_rep1_alignment_ends_coverage_neg_strand.bigwig
+    jobid: 13
+    wildcards: sample=YY1, replicate=rep1, type=neg
+    threads: 4
+
+Submitted job 13 with external jobid 'Your job 5289880 ("BigWig") has been submitted'.
+
+[Wed Jan 16 17:21:38 2019]
+rule calculate_coverage_bigwig:
+    input: /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/YY1_rep1_crosslinking_coverage_both_strand.bedgraph, /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/YY1_rep1_alignment_ends_coverage_both_strand.bedgraph
+    output: /scratch/bi03/heylf/Marc/YY1/coverage/bigwig/YY1_rep1_crosslinking_coverage_both_strand.bigwig, /scratch/bi03/heylf/Marc/YY1/coverage/bigwig/YY1_rep1_alignment_ends_coverage_both_strand.bigwig
+    jobid: 9
+    wildcards: sample=YY1, replicate=rep1, type=both
+    threads: 4
+
+Submitted job 9 with external jobid 'Your job 5289881 ("BigWig") has been submitted'.
+
+[Wed Jan 16 17:21:38 2019]
+rule calculate_coverage_bigwig:
+    input: /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/YY1_rep1_crosslinking_coverage_pos_strand.bedgraph, /scratch/bi03/heylf/Marc/YY1/coverage/bedgraph/YY1_rep1_alignment_ends_coverage_pos_strand.bedgraph
+    output: /scratch/bi03/heylf/Marc/YY1/coverage/bigwig/YY1_rep1_crosslinking_coverage_pos_strand.bigwig, /scratch/bi03/heylf/Marc/YY1/coverage/bigwig/YY1_rep1_alignment_ends_coverage_pos_strand.bigwig
+    jobid: 8
+    wildcards: sample=YY1, replicate=rep1, type=pos
+    threads: 4
+
+Submitted job 8 with external jobid 'Your job 5289882 ("BigWig") has been submitted'.
+Waiting at most 60 seconds for missing files.
+[Wed Jan 16 17:22:08 2019]
+Finished job 4.
+45 of 52 steps (87%) done
+
+[Wed Jan 16 17:22:08 2019]
+rule extract_genomic_DNA_dreme:
+    input: /scratch/bi03/heylf/Marc/YY1/peakcalling/YY1_rep1_IgG_rep1_peaks_extended.bed
+    output: /scratch/bi03/heylf/Marc/YY1/motif_detection/YY1_rep1_IgG_rep1_peaks.bed3, /scratch/bi03/heylf/Marc/YY1/motif_detection/YY1_rep1_IgG_rep1_peaks.fa
+    jobid: 32
+    wildcards: sample_exp=YY1, replicate_exp=rep1, sample_ctl=IgG, replicate_ctl=rep1
+    threads: 2
+
+[Wed Jan 16 17:22:08 2019]
+Finished job 7.
+46 of 52 steps (88%) done
+[Wed Jan 16 17:22:08 2019]
+Finished job 13.
+47 of 52 steps (90%) done
+[Wed Jan 16 17:22:08 2019]
+Finished job 9.
+48 of 52 steps (92%) done
+[Wed Jan 16 17:22:08 2019]
+Finished job 8.
+49 of 52 steps (94%) done
+Submitted job 32 with external jobid 'Your job 5289886 ("SalamiSnake") has been submitted'.
+[Wed Jan 16 17:22:38 2019]
+Finished job 32.
+50 of 52 steps (96%) done
+
+[Wed Jan 16 17:22:38 2019]
+rule meme_chip:
+    input: /scratch/bi03/heylf/Marc/YY1/motif_detection/YY1_rep1_IgG_rep1_peaks.fa
+    output: /scratch/bi03/heylf/Marc/YY1/motif_detection/YY1_rep1_IgG_rep1_meme_chip/meme-chip.html
+    jobid: 12
+    wildcards: sample_exp=YY1, replicate_exp=rep1, sample_ctl=IgG, replicate_ctl=rep1
+    threads: 4
+
+Submitted job 12 with external jobid 'Your job 5289889 ("MEME_CHIP") has been submitted'.
+[Wed Jan 16 17:44:17 2019]
+Finished job 12.
+51 of 52 steps (98%) done
+
+[Wed Jan 16 17:44:17 2019]
+localrule all:
+    input: /scratch/bi03/heylf/Marc/YY1/mapping/YY1_rep1.bam, /scratch/bi03/heylf/Marc/YY1/mapping/IgG_rep1.bam, /scratch/bi03/heylf/Marc/YY1/mapping/YY1_rep1.bam.bai, /scratch/bi03/heylf/Marc/YY1/mapping/IgG_rep1.bam.bai, /scratch/bi03/heylf/Marc/YY1/multiqc/multiqc_report.html, /scratch/bi03/heylf/Marc/YY1/peakcalling/YY1_rep1_IgG_rep1_peaks_extended.bed, /scratch/bi03/heylf/Marc/YY1/annotation_peaks/YY1_rep1_IgG_rep1_binding_regions_intersecting_peaks.gtf, /scratch/bi03/heylf/Marc/YY1/coverage/bigwig/YY1_rep1_alignment_ends_coverage_pos_strand.bigwig, /scratch/bi03/heylf/Marc/YY1/coverage/bigwig/YY1_rep1_alignment_ends_coverage_neg_strand.bigwig, /scratch/bi03/heylf/Marc/YY1/coverage/bigwig/YY1_rep1_alignment_ends_coverage_both_strand.bigwig, /scratch/bi03/heylf/Marc/YY1/coverage/bigwig/IgG_rep1_alignment_ends_coverage_pos_strand.bigwig, /scratch/bi03/heylf/Marc/YY1/coverage/bigwig/IgG_rep1_alignment_ends_coverage_neg_strand.bigwig, /scratch/bi03/heylf/Marc/YY1/coverage/bigwig/IgG_rep1_alignment_ends_coverage_both_strand.bigwig, /scratch/bi03/heylf/Marc/YY1/motif_detection/YY1_rep1_IgG_rep1_meme_chip/meme-chip.html
+    jobid: 0
+
+[Wed Jan 16 17:44:17 2019]
+Finished job 0.
+52 of 52 steps (100%) done
+Complete log: /scratch/bi03/heylf/SalamiSnake_CLIP/.snakemake/log/2019-01-16T155958.479343.snakemake.log

@@ -1,0 +1,85 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cluster nodes: 20
+Job counts:
+	count	jobs
+	1	all
+	1	extract_genomic_DNA_dreme
+	1	find_robust_peaks
+	1	peaks_extend_frontiers
+	1	piranha
+	1	rna_structure_prediction
+	6
+
+[Thu Jan 17 17:14:49 2019]
+rule piranha:
+    input: /scratch/bi03/heylf/Dinh/ELAVL1/Murkherjee/preprocessing_for_umi/ELAVL1_rep1_got_umis_unlocalized_check.bam
+    output: /scratch/bi03/heylf/Dinh/ELAVL1/Murkherjee/peakcalling/ELAVL1_rep1_peaks.bed
+    jobid: 13
+    wildcards: sample=ELAVL1, replicate=rep1
+    threads: 2
+
+Submitted job 13 with external jobid 'Your job 5292415 ("Piranha") has been submitted'.
+[Thu Jan 17 17:20:21 2019]
+Finished job 13.
+1 of 6 steps (17%) done
+
+[Thu Jan 17 17:20:21 2019]
+rule peaks_extend_frontiers:
+    input: /scratch/bi03/heylf/Dinh/ELAVL1/Murkherjee/peakcalling/ELAVL1_rep1_peaks.bed, /scratch/bi03/heylf/genomes/hg19/hg19_chr_sizes.txt
+    output: /scratch/bi03/heylf/Dinh/ELAVL1/Murkherjee/peakcalling/ELAVL1_rep1_peaks_extended.bed
+    jobid: 5
+    wildcards: sample=ELAVL1, replicate=rep1
+    threads: 2
+
+Submitted job 5 with external jobid 'Your job 5292416 ("SalamiSnake") has been submitted'.
+[Thu Jan 17 17:20:51 2019]
+Finished job 5.
+2 of 6 steps (33%) done
+
+[Thu Jan 17 17:20:51 2019]
+rule find_robust_peaks:
+    input: /scratch/bi03/heylf/Dinh/ELAVL1/Murkherjee/peakcalling/ELAVL1_rep1_peaks_extended.bed
+    output: /scratch/bi03/heylf/Dinh/ELAVL1/Murkherjee/robust_peak_search/robust_between_all.bed
+    jobid: 4
+    threads: 2
+
+Submitted job 4 with external jobid 'Your job 5292417 ("SalamiSnake") has been submitted'.
+
+[Thu Jan 17 17:20:51 2019]
+rule extract_genomic_DNA_dreme:
+    input: /scratch/bi03/heylf/Dinh/ELAVL1/Murkherjee/peakcalling/ELAVL1_rep1_peaks_extended.bed
+    output: /scratch/bi03/heylf/Dinh/ELAVL1/Murkherjee/motif_detection/ELAVL1_rep1_peaks.bed3, /scratch/bi03/heylf/Dinh/ELAVL1/Murkherjee/motif_detection/ELAVL1_rep1_peaks.fa
+    jobid: 12
+    wildcards: sample=ELAVL1, replicate=rep1
+    threads: 2
+
+Submitted job 12 with external jobid 'Your job 5292418 ("SalamiSnake") has been submitted'.
+[Thu Jan 17 17:21:21 2019]
+Finished job 4.
+3 of 6 steps (50%) done
+[Thu Jan 17 17:23:07 2019]
+Finished job 12.
+4 of 6 steps (67%) done
+
+[Thu Jan 17 17:23:07 2019]
+rule rna_structure_prediction:
+    input: /scratch/bi03/heylf/Dinh/ELAVL1/Murkherjee/motif_detection/ELAVL1_rep1_peaks.fa
+    output: /scratch/bi03/heylf/Dinh/ELAVL1/Murkherjee/structure_prediction/ELAVL1_rep1_structures.txt
+    jobid: 3
+    wildcards: sample=ELAVL1, replicate=rep1
+
+Submitted job 3 with external jobid 'Your job 5292419 ("Structure") has been submitted'.
+[Thu Jan 17 17:52:16 2019]
+Finished job 3.
+5 of 6 steps (83%) done
+
+[Thu Jan 17 17:52:16 2019]
+localrule all:
+    input: /scratch/bi03/heylf/Dinh/ELAVL1/Murkherjee/mapping/ELAVL1_rep1.bam, /scratch/bi03/heylf/Dinh/ELAVL1/Murkherjee/mapping/ELAVL1_rep1.bam.bai, /scratch/bi03/heylf/Dinh/ELAVL1/Murkherjee/multiqc/multiqc_report.html, /scratch/bi03/heylf/Dinh/ELAVL1/Murkherjee/mapping_quality/fingerprint_plot.png, /scratch/bi03/heylf/Dinh/ELAVL1/Murkherjee/peakcalling/ELAVL1_rep1_peaks_extended.bed, /scratch/bi03/heylf/Dinh/ELAVL1/Murkherjee/robust_peak_search/robust_between_all.bed, /scratch/bi03/heylf/Dinh/ELAVL1/Murkherjee/coverage/bigwig/ELAVL1_rep1_coverage_pos_strand.bigwig, /scratch/bi03/heylf/Dinh/ELAVL1/Murkherjee/coverage/bigwig/ELAVL1_rep1_coverage_neg_strand.bigwig, /scratch/bi03/heylf/Dinh/ELAVL1/Murkherjee/coverage/bigwig/ELAVL1_rep1_coverage_both_strand.bigwig, /scratch/bi03/heylf/Dinh/ELAVL1/Murkherjee/structure_prediction/ELAVL1_rep1_structures.txt
+    jobid: 0
+
+[Thu Jan 17 17:52:16 2019]
+Finished job 0.
+6 of 6 steps (100%) done
+Complete log: /scratch/bi03/heylf/SalamiSnake_CLIP_2/.snakemake/log/2019-01-17T171445.342546.snakemake.log

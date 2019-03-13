@@ -1,0 +1,356 @@
+
+######################
+# Sample Definitions #
+######################
+
+# input directory
+sample_data_dir: "/scratch/bi03/heylf/Dinh"
+
+clip_samples:
+  Protein_rep1: {r1: "DRR014099", r2: "-"}
+  Protein_rep2: {r1: "DRR014100", r2: "-"}
+  Protein_rep3: {r1: "DRR014103", r2: "-"}
+  Protein_rep4: {r1: "ERR669914", r2: "-"}
+  Protein_rep5: {r1: "ERR669915", r2: "-"}
+  Protein_rep6: {r1: "SRR048950", r2: "-"}
+  Protein_rep7: {r1: "SRR048951", r2: "-"}
+  Protein_rep8: {r1: "SRR048952", r2: "-"}
+  Protein_rep9: {r1: "SRR048953", r2: "-"}
+  Protein_rep10: {r1: "SRR048954", r2: "-"}
+  Protein_rep11: {r1: "SRR048955", r2: "-"}
+  Protein_rep12: {r1: "SRR048957", r2: "-"}
+  Protein_rep13: {r1: "SRR048958", r2: "-"}
+  Protein_rep14: {r1: "SRR048959", r2: "-"}
+  Protein_rep15: {r1: "SRR048960", r2: "-"}
+  Protein_rep16: {r1: "SRR048961", r2: "-"}
+  Protein_rep17: {r1: "SRR048962", r2: "-"}
+  Protein_rep18: {r1: "SRR048963", r2: "-"}
+  Protein_rep19: {r1: "SRR048964", r2: "-"}
+  Protein_rep20: {r1: "SRR048965", r2: "-"}
+  Protein_rep21: {r1: "SRR048966", r2: "-"}
+  Protein_rep22: {r1: "SRR048967", r2: "-"}
+  Protein_rep23: {r1: "SRR048968", r2: "-"}
+  Protein_rep24: {r1: "SRR048969", r2: "-"}
+  Protein_rep25: {r1: "SRR048970", r2: "-"}
+  Protein_rep26: {r1: "SRR048971", r2: "-"}
+  Protein_rep27: {r1: "SRR048972", r2: "-"}
+  Protein_rep28: {r1: "SRR048973", r2: "-"}
+  Protein_rep29: {r1: "SRR048974", r2: "-"}
+  Protein_rep30: {r1: "SRR048975", r2: "-"}
+  Protein_rep31: {r1: "SRR048976", r2: "-"}
+  Protein_rep32: {r1: "SRR048977", r2: "-"}
+  Protein_rep33: {r1: "SRR048978", r2: "-"}
+  Protein_rep34: {r1: "SRR048979", r2: "-"}
+  Protein_rep35: {r1: "SRR048982", r2: "-"}
+  Protein_rep36: {r1: "SRR048983", r2: "-"}
+  Protein_rep37: {r1: "SRR048984", r2: "-"}
+  Protein_rep38: {r1: "SRR048985", r2: "-"}
+  Protein_rep39: {r1: "SRR048986", r2: "-"}
+  Protein_rep40: {r1: "SRR048987", r2: "-"}
+  Protein_rep41: {r1: "SRR070448", r2: "-"}
+  Protein_rep42: {r1: "SRR070449", r2: "-"}
+  Protein_rep43: {r1: "SRR070450", r2: "-"}
+  Protein_rep44: {r1: "SRR070460", r2: "-"}
+  Protein_rep45: {r1: "SRR070461", r2: "-"}
+  Protein_rep46: {r1: "SRR070462", r2: "-"}
+  Protein_rep47: {r1: "SRR070463", r2: "-"}
+  Protein_rep48: {r1: "SRR189777", r2: "-"}
+  Protein_rep49: {r1: "SRR189778", r2: "-"}
+  Protein_rep50: {r1: "SRR189779", r2: "-"}
+  Protein_rep51: {r1: "SRR189780", r2: "-"}
+  Protein_rep52: {r1: "SRR189781", r2: "-"}
+  Protein_rep53: {r1: "SRR189784", r2: "-"}
+  Protein_rep54: {r1: "SRR189785", r2: "-"}
+  Protein_rep55: {r1: "SRR189786", r2: "-"}
+  Protein_rep56: {r1: "SRR189787", r2: "-"}
+  Protein_rep57: {r1: "SRR248532", r2: "-"}
+  Protein_rep58: {r1: "SRR452496", r2: "-"}
+  Protein_rep59: {r1: "SRR452497", r2: "-"}
+  Protein_rep60: {r1: "SRR488725", r2: "-"}
+  Protein_rep61: {r1: "SRR488726", r2: "-"}
+  Protein_rep62: {r1: "SRR488727", r2: "-"}
+  Protein_rep63: {r1: "SRR488728", r2: "-"}
+  Protein_rep64: {r1: "SRR488729", r2: "-"}
+  Protein_rep65: {r1: "SRR488730", r2: "-"}
+  Protein_rep66: {r1: "SRR488731", r2: "-"}
+  Protein_rep67: {r1: "SRR488732", r2: "-"}
+  Protein_rep68: {r1: "SRR488733", r2: "-"}
+  Protein_rep69: {r1: "SRR488734", r2: "-"}
+  Protein_rep70: {r1: "SRR488735", r2: "-"}
+  Protein_rep71: {r1: "SRR488736", r2: "-"}
+  Protein_rep72: {r1: "SRR488737", r2: "-"}
+  Protein_rep73: {r1: "SRR488738", r2: "-"}
+  Protein_rep74: {r1: "SRR488739", r2: "-"}
+  Protein_rep75: {r1: "SRR488740", r2: "-"}
+  Protein_rep76: {r1: "SRR488741", r2: "-"}
+  Protein_rep77: {r1: "SRR488742", r2: "-"}
+  Protein_rep78: {r1: "SRR490650", r2: "-"}
+  Protein_rep79: {r1: "SRR500478", r2: "-"}
+  Protein_rep80: {r1: "SRR500479", r2: "-"}
+  Protein_rep81: {r1: "SRR500480", r2: "-"}
+  Protein_rep82: {r1: "SRR500481", r2: "-"}
+  Protein_rep83: {r1: "SRR500482", r2: "-"}
+  Protein_rep84: {r1: "SRR500483", r2: "-"}
+  Protein_rep85: {r1: "SRR500484", r2: "-"}
+  Protein_rep86: {r1: "SRR500485", r2: "-"}
+  Protein_rep87: {r1: "SRR500486", r2: "-"}
+  Protein_rep88: {r1: "SRR500487", r2: "-"}
+  Protein_rep89: {r1: "SRR527727", r2: "-"}
+  Protein_rep90: {r1: "SRR527728", r2: "-"}
+  Protein_rep91: {r1: "SRR527731", r2: "-"}
+  Protein_rep92: {r1: "SRR527732", r2: "-"}
+  Protein_rep93: {r1: "SRR650318", r2: "-"}
+  Protein_rep94: {r1: "SRR650319", r2: "-"}
+  Protein_rep95: {r1: "SRR650320", r2: "-"}
+  Protein_rep96: {r1: "SRR650321", r2: "-"}
+  Protein_rep97: {r1: "SRR651722", r2: "-"}
+  Protein_rep98: {r1: "SRR651723", r2: "-"}
+  Protein_rep99: {r1: "SRR651724", r2: "-"}
+  Protein_rep100: {r1: "SRR651725", r2: "-"}
+  Protein_rep101: {r1: "SRR651726", r2: "-"}
+  Protein_rep102: {r1: "SRR651727", r2: "-"}
+  Protein_rep103: {r1: "SRR653235", r2: "-"}
+  Protein_rep104: {r1: "SRR653236", r2: "-"}
+  Protein_rep105: {r1: "SRR653237", r2: "-"}
+  Protein_rep106: {r1: "SRR653238", r2: "-"}
+  Protein_rep107: {r1: "SRR653239", r2: "-"}
+  Protein_rep108: {r1: "SRR764666", r2: "-"}
+  Protein_rep109: {r1: "SRR764667", r2: "-"}
+  Protein_rep110: {r1: "SRR764668", r2: "-"}
+  Protein_rep111: {r1: "SRR764669", r2: "-"}
+  Protein_rep112: {r1: "SRR771562", r2: "-"}
+  Protein_rep113: {r1: "SRR771563", r2: "-"}
+  Protein_rep114: {r1: "SRR850551", r2: "-"}
+  Protein_rep115: {r1: "SRR850552", r2: "-"}
+  Protein_rep116: {r1: "SRR857933", r2: "-"}
+  Protein_rep117: {r1: "SRR857934", r2: "-"}
+  Protein_rep118: {r1: "SRR921441", r2: "-"}
+  Protein_rep119: {r1: "SRR921442", r2: "-"}
+  Protein_rep120: {r1: "SRR921447", r2: "-"}
+  Protein_rep121: {r1: "SRR921448", r2: "-"}
+  Protein_rep122: {r1: "SRR965316", r2: "-"}
+  Protein_rep123: {r1: "SRR965317", r2: "-"}
+  Protein_rep124: {r1: "SRR989636", r2: "-"}
+  Protein_rep125: {r1: "SRR989637", r2: "-"}
+  Protein_rep126: {r1: "SRR1042839", r2: "-"}
+  Protein_rep127: {r1: "SRR1042840", r2: "-"}
+  Protein_rep128: {r1: "SRR1042842", r2: "-"}
+  Protein_rep129: {r1: "SRR1046759", r2: "-"}
+  Protein_rep130: {r1: "SRR1176638", r2: "-"}
+  Protein_rep131: {r1: "SRR1176639", r2: "-"}
+  Protein_rep132: {r1: "SRR1176640", r2: "-"}
+  Protein_rep133: {r1: "SRR1176641", r2: "-"}
+  Protein_rep134: {r1: "SRR1176642", r2: "-"}
+  Protein_rep135: {r1: "SRR1176643", r2: "-"}
+  Protein_rep136: {r1: "SRR1188147", r2: "-"}
+  Protein_rep137: {r1: "SRR1188166", r2: "-"}
+  Protein_rep138: {r1: "SRR1198834", r2: "-"}
+  Protein_rep139: {r1: "SRR1198835", r2: "-"}
+  Protein_rep140: {r1: "SRR1269756", r2: "-"}
+  Protein_rep141: {r1: "SRR1269757", r2: "-"}
+  Protein_rep142: {r1: "SRR1269758", r2: "-"}
+  Protein_rep143: {r1: "SRR1269759", r2: "-"}
+  Protein_rep144: {r1: "SRR1566437", r2: "-"}
+  Protein_rep145: {r1: "SRR1657189", r2: "-"}
+  Protein_rep146: {r1: "SRR1657190", r2: "-"}
+  Protein_rep147: {r1: "SRR1657191", r2: "-"}
+  Protein_rep148: {r1: "SRR1657192", r2: "-"}
+  Protein_rep149: {r1: "SRR1657193", r2: "-"}
+  Protein_rep150: {r1: "SRR1761288", r2: "-"}
+  Protein_rep151: {r1: "SRR1761289", r2: "-"}
+  Protein_rep152: {r1: "SRR1761290", r2: "-"}
+  Protein_rep153: {r1: "SRR1761291", r2: "-"}
+  Protein_rep154: {r1: "SRR1761292", r2: "-"}
+  Protein_rep155: {r1: "SRR1761293", r2: "-"}
+  Protein_rep156: {r1: "SRR1761294", r2: "-"}
+  Protein_rep157: {r1: "SRR1761295", r2: "-"}
+  Protein_rep158: {r1: "SRR1761296", r2: "-"}
+  Protein_rep159: {r1: "SRR1761297", r2: "-"}
+  Protein_rep160: {r1: "SRR1761298", r2: "-"}
+  Protein_rep161: {r1: "SRR1761299", r2: "-"}
+  Protein_rep162: {r1: "SRR2048051", r2: "-"}
+  Protein_rep163: {r1: "SRR2048053", r2: "-"}
+  Protein_rep164: {r1: "SRR2048056", r2: "-"}
+  Protein_rep165: {r1: "SRR4301753", r2: "-"}
+  Protein_rep166: {r1: "SRR5224312", r2: "-"}
+  Protein_rep167: {r1: "SRR5224313", r2: "-"}
+
+control_samples:
+  #Control_rep1:  {r1: "ENCFF264UQQ", r2: "ENCFF648TWD"}
+
+multiplex_setup: {r1: "-", r2: "-"}
+
+protocol: "PARCLIP"
+paired: "no"
+control: "no"
+demultiplexed: "yes"
+
+# Peakcaller
+# peakcaller: "PureCLIP"
+peakcaller: "Piranha"
+# peakcaller: "PEAKachu"
+
+# provide barcodes in a tabular form like:
+# sample_1  barcode_1
+# sample_2  barcode_2
+# sample_3  barcode_3
+barcodes: ""
+
+# genome directories
+# hg19 
+# ref_genome_dir: "/scratch/bi03/heylf/genomes/hg19"
+# genome_fasta: "/GRCh37.p13.genome.fa"
+# genome_2bit: "/hg19.2bit"
+# genome_gtf: "/Genocode_hg19.gtf"
+# genome_sizes: "/hg19_chr_sizes.txt"
+# hg38 
+ref_genome_dir: "/scratch/bi03/heylf/genomes/hg38"
+genome_fasta: "/hg38.fa"
+genome_2bit: "/hg38.2bit"
+genome_gtf: "/Gencode.v29.all.gtf"
+genome_sizes: "/hg38.chrom.sizes.txt"
+# dm6 
+# ref_genome_dir: "/scratch/bi03/heylf/genomes/dm6"
+# genome_fasta: "/UCSC_edu_goldenPath_dm6_bigZips_dm6.fa"
+# genome_2bit: "/UCSC_edu_goldenPath_dm6_bigZips_dm6.2bit"
+# genome_gtf: "/UCSC_dm6.gtf"
+# genome_sizes: "/UCSC_edu_goldenPath_dm6_bigZips_dm6.chrom.sizes.txt"
+# mm10
+# ref_genome_dir: "/scratch/bi03/heylf/genomes/mm10"
+# genome_fasta: "/mm10.fa"
+# genome_2bit: "/mm10.2bit"
+# genome_gtf: "/MM_GRCm38.92.changedchrname.gtf"
+# genome_sizes: "/mm10_chr_sizes.txt"
+
+###############
+# Directories #
+###############
+
+# output directories
+renaming_outdir:  "renaming"
+fastqc_beg_outdir:  "fastqc_beginning"
+fastqc_adapt_outdir:  "fastqc_after_trimming"
+cutadapt_outdir:  "cutadapt"
+trim_galore_outdir: "trim_galore"
+remove_tail_outdir: "remove_tail"
+demulti_outdir: "demultiplexed"
+mapping_outdir: "mapping"
+mapping_quality_outdir: "mapping_quality"
+preprocessing_for_umi_outdir: "preprocessing_for_umi"
+deduplication_outdir: "deduplication"
+fastqc_before_dedup_outdir:  "fastqc_before_deduplication"
+fastqc_dedup_outdir:  "fastqc_after_deduplication"
+coverage_outdir:  "coverage"
+peakcalling_outdir:  "peakcalling"
+post_processing_outdir: "post_processing"
+robust_peak_search_outdir: "robust_peak_search"
+motif_detection_outdir: "motif_detection"
+motif_search_outdir: "motif_search"
+matefilter_outdir:  "mate_filter"
+multiqc_outdir:  "multiqc"
+annotation_peaks_outdir: "annotation_peaks"
+htseq_outdir: "htseq_count"
+structure_predic_outdir: "structure_prediction"
+
+# tool directories
+bctools: "scripts"
+rcas: "scripts"
+extract_genomic_dna: "scripts"
+find_robust_intersections: "scripts"
+dreme: "/scratch/bi01/heylf/miniconda3/bin"
+
+# conda environment directory 
+conda_envs: "../../envs"
+# subworkflows
+rules: "rules"
+
+################
+# Tool options #
+################
+
+### CUTADAPT ###
+# PARCLIP
+cutadapt: &cutadapt "--error-rate=0.1 --times=1 --overlap=5 -m 20 -a TCGTATGCCGTCTTCTGCTTG"
+
+#FLASH
+# cutadapt: &cutadapt >-
+#               --error-rate=0.1 --times=1 --overlap=5 -m 20 
+#               -a AGATCGGAAGAGCACACGTCTGAACTCCAGTCACNNNNNNATCTCGTATGCCGTCTTCTGCTTG 
+#               -A AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTAGATCTCGGTGGTCGCCGTATCATT
+
+### REMOVE_TAIL ###
+# arbitrary
+remove_tail: &remove_tail "10"
+# FLASH
+# remove_tail: &remove_tail "13"
+
+### UMI_TOOLS ###
+# FLASH
+got_umis_1: &got_umis_1 "-p NNNNNXXXXXXNN"
+got_umis_2: &got_umis_2 "-p NNNNNN"
+umi_dedup: &umi_dedup "--random-seed 0 --extract-umi-method read_id --method adjacency --edit-distance-threshold 1 --soft-clip-threshold 4 --subset 1.0 --paired"
+
+### DEMULTIPLEXING ###
+# FLASH
+demultiplex: &demultiplex >-
+              SAME_HEADERS=false BPOS=READ_2 BCLEN=6 C=true ADD=false MM=1 MMD=1 Q=10 QUALITY_FORMAT=Standard XT=0 ZT=0 RCHAR=: GZ=false 
+              KEEP_UNASSIGNED_READ=false STATS_ONLY=false
+
+### STAR ###
+star_all: &star_all >-
+    --outSAMtype BAM SortedByCoordinate --outSAMattributes All --outSAMstrandField intronMotif --outFilterIntronMotifs None --outSAMunmapped None 
+    --outSAMprimaryFlag OneBestScore --outSAMmapqUnique '255' --outFilterType Normal --outFilterMultimapScoreRange '1' --outFilterMultimapNmax '10'
+    --outFilterMismatchNmax '10' --outFilterMismatchNoverLmax '0.3' --outFilterMismatchNoverReadLmax '1.0' --outFilterScoreMin '0'
+    --outFilterMatchNmin '0' --seedSearchStartLmax '50' --seedSearchStartLmaxOverLread '1.0' --seedSearchLmax '0' 
+    --seedMultimapNmax '10000' --seedPerReadNmax '1000' --seedPerWindowNmax '50' --seedNoneLociPerWindow '10'  --alignIntronMin '21' --alignIntronMax '0' 
+    --alignMatesGapMax '0' --alignSJoverhangMin '5' --alignSJDBoverhangMin '3' --alignSplicedMateMapLmin '0' --alignSplicedMateMapLminOverLmate '0.66'  
+    --alignWindowsPerReadNmax '10000' --alignTranscriptsPerWindowNmax '100' --alignTranscriptsPerReadNmax '10000' --alignEndsType EndToEnd  --twopassMode 'Basic' 
+    --twopass1readsN '-1' --limitBAMsortRAM '0' --limitOutSJoneRead '1000' --limitOutSJcollapsed '1000000' --limitSjdbInsertNsj '1000000' 
+# long reads 
+star_indi: &star_indi "--outFilterScoreMinOverLread '0.66' --outFilterMatchNminOverLread '0.66'"
+# small reads 
+# star_indi: &star_indi "--outFilterScoreMinOverLread '0.3' --outFilterMatchNminOverLread '0.3'"
+
+gc_bias: &gc_bias "--fragmentLength 300 --effectiveGenomeSize 2451960000"
+fingerprint: &fingerprint "--binSize 100"
+multiBamSummary: &multiBamSummary "--binSize '1000' --distanceBetweenBins '0'"
+plotCorrelation: &plotCorrelation >-
+                    --corMethod 'spearman' --whatToPlot 'heatmap' --colorMap 'RdYlBu'  
+                    --plotTitle '' --plotWidth 11.0 --plotHeight 9.5  --plotFileFormat 'png'
+estimate_insert_size: &estimate_insert_size >-
+                      DEVIATIONS='10.0' MINIMUM_PCT='0.05' ASSUME_SORTED='false' 
+                      METRIC_ACCUMULATION_LEVEL='ALL_READS'  VALIDATION_STRINGENCY='LENIENT' QUIET=true VERBOSITY=ERROR
+
+### PURECLIP ###
+# hg19
+# pureclip: &pureclip "-iv 'chr1;chr2;chr3;'"
+# pureclip: &pureclip "-bdw 10 -bdwn 10 -iv 'chr1;chr2;chr3;'"
+# dm6 (small binding regions)
+# pureclip: &pureclip "-bdw 5 -bdwn 5 -ld -antp"
+# mm10 
+pureclip: &pureclip "-bdw 50 -bdwn 50 -antp -ld -iv 'chr1;chr2;chr3;'"
+
+### PIRANHA ###
+# dm6
+# piranha: &piranha "-s -p 0.05  -b 10 -i 10 -u 10 -d Poisson"
+# hg19
+piranha: &piranha "-s -p 0.05 -b 50 -i 50 -u 0"
+
+# see my note to --pairwise_replicates 
+peakachu: &peakachu >-
+          --max_insert_size 200 --features '' --sub_features '' --min_cluster_expr_frac 0.01 --min_block_overlap 0.5 --min_max_block_expr 0.1 
+          --norm_method deseq --mad_multiplier 0.0 --fc_cutoff 2.0 --padj_threshold 0.05 --pairwise_replicates 
+
+### Extract CL ###
+# eCLIP
+#extract_cl: &extract_cl "--threeprime"
+# FLASH
+extract_cl: &extract_cl ""
+
+peaks_extend_frontiers: &peaks_extend_frontiers "-header -b 25"
+meme_chip: &meme_chip >-
+            -norc -order 1 -group-thresh 0.05 -group-weak 0.0 -filter-thresh 0.05  -meme-mod zoops -meme-minw 5 -meme-maxw 20 -meme-nmotifs 20  
+            -dreme-e 0.05 -dreme-m 20 -spamo-skip -fimo-skip -noecho -dna -seed 123
+fimo: &fimo "--alpha 1.000000 --max-stored-scores 100000 --motif-pseudo 0.100000 --qv-thresh --thresh 0.000100 --verbosity 1"
+annotation: &annotation "-s -u -wa"
+rnafold: &rnafold "-p --MEA -d2 --noPS"

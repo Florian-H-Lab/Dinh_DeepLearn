@@ -1,0 +1,7 @@
+Building DAG of jobs...
+MissingInputException in line 306 of /scratch/bi03/heylf/SalamiSnake_CLIP/Snakefile.py:
+Missing input files for rule renaming:
+/scratch/bi03/heylf/Marc/YY1_CLIP/UV_IgG_R1.fastq
+/scratch/bi03/heylf/Marc/YY1_CLIP/UV_YY1_R2.fastq
+/scratch/bi03/heylf/Marc/YY1_CLIP/UV_YY1_R1.fastq
+/scratch/bi03/heylf/Marc/YY1_CLIP/UV_IgG_R2.fastq

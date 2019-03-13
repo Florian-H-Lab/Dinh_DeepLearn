@@ -1,0 +1,12 @@
+name: bctools
+channels:
+  - bioconda
+dependencies:
+  - bctools=0.2.2
+  - bedtools
+  - biopython
+  - datamash
+  - future
+  - perl>=5.22*
+  - pybedtools
+

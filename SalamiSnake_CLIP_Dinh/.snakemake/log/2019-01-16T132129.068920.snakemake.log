@@ -1,0 +1,31 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cluster nodes: 20
+Job counts:
+	count	jobs
+	1	all
+	1	intersect_binding_regions_with_peaks
+	2
+
+[Wed Jan 16 13:21:30 2019]
+rule intersect_binding_regions_with_peaks:
+    input: /scratch/bi03/heylf/Marc/YY1_CLIP/peakcalling/YY1_rep1_Input_rep1_binding_regions.bed, /scratch/bi03/heylf/genomes/mm10/MM_GRCm38.92.changedchrname.gtf
+    output: /scratch/bi03/heylf/Marc/YY1_CLIP/annotation_peaks/YY1_rep1_Input_rep1_binding_regions_intersecting_peaks.gtf
+    jobid: 1
+    wildcards: sample_exp=YY1, replicate_exp=rep1, sample_ctl=Input, replicate_ctl=rep1
+    threads: 2
+
+Submitted job 1 with external jobid 'Your job 5288721 ("SalamiSnake") has been submitted'.
+[Wed Jan 16 13:23:02 2019]
+Finished job 1.
+1 of 2 steps (50%) done
+
+[Wed Jan 16 13:23:02 2019]
+localrule all:
+    input: /scratch/bi03/heylf/Marc/YY1_CLIP/mapping/YY1_rep1.bam, /scratch/bi03/heylf/Marc/YY1_CLIP/mapping/Input_rep1.bam, /scratch/bi03/heylf/Marc/YY1_CLIP/mapping/YY1_rep1.bam.bai, /scratch/bi03/heylf/Marc/YY1_CLIP/mapping/Input_rep1.bam.bai, /scratch/bi03/heylf/Marc/YY1_CLIP/multiqc/multiqc_report.html, /scratch/bi03/heylf/Marc/YY1_CLIP/peakcalling/YY1_rep1_Input_rep1_peaks_extended.bed, /scratch/bi03/heylf/Marc/YY1_CLIP/annotation_peaks/YY1_rep1_Input_rep1_binding_regions_intersecting_peaks.gtf, /scratch/bi03/heylf/Marc/YY1_CLIP/coverage/bigwig/YY1_rep1_coverage_pos_strand.bigwig, /scratch/bi03/heylf/Marc/YY1_CLIP/coverage/bigwig/YY1_rep1_coverage_neg_strand.bigwig, /scratch/bi03/heylf/Marc/YY1_CLIP/coverage/bigwig/YY1_rep1_coverage_both_strand.bigwig, /scratch/bi03/heylf/Marc/YY1_CLIP/coverage/bigwig/Input_rep1_coverage_pos_strand.bigwig, /scratch/bi03/heylf/Marc/YY1_CLIP/coverage/bigwig/Input_rep1_coverage_neg_strand.bigwig, /scratch/bi03/heylf/Marc/YY1_CLIP/coverage/bigwig/Input_rep1_coverage_both_strand.bigwig, /scratch/bi03/heylf/Marc/YY1_CLIP/motif_detection/YY1_rep1_Input_rep1_meme_chip/meme-chip.html
+    jobid: 0
+
+[Wed Jan 16 13:23:02 2019]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: /scratch/bi03/heylf/SalamiSnake_CLIP/.snakemake/log/2019-01-16T132129.068920.snakemake.log

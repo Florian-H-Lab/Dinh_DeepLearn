@@ -1,0 +1,9 @@
+Building DAG of jobs...
+MissingInputException in line 245 of /scratch/bi03/heylf/SalamiSnake_CLIP/Snakefile.py:
+Missing input files for rule all:
+/scratch/bi03/heylf/Marc/YY1/coverage/bigwig/YY1_rep1_coverage_pos_strand.bigwig
+/scratch/bi03/heylf/Marc/YY1/coverage/bigwig/IgG_rep1_coverage_both_strand.bigwig
+/scratch/bi03/heylf/Marc/YY1/coverage/bigwig/YY1_rep1_coverage_neg_strand.bigwig
+/scratch/bi03/heylf/Marc/YY1/coverage/bigwig/IgG_rep1_coverage_pos_strand.bigwig
+/scratch/bi03/heylf/Marc/YY1/coverage/bigwig/YY1_rep1_coverage_both_strand.bigwig
+/scratch/bi03/heylf/Marc/YY1/coverage/bigwig/IgG_rep1_coverage_neg_strand.bigwig

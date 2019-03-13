@@ -1,0 +1,219 @@
+## Generate Input ## 
+- bin/downloads.txt contains all PARCLIP samples used for the analysis
+- bin/parallel_downloads.sh used to downlaod
+- bin/parallel_gunzip.sh used to unzip
+
+##  PARCLIP Analysis Piepline ## 
+- Adapters need to be removed: 
+	# PARCLIP
+	cutadapt: &cutadapt "--error-rate=0.1 --times=1 --overlap=5 -m 20 -a TCGTATGCCGTCTTCTGCTTG"
+- UMIs not included just filtered for 0x100
+- run SalamiSnake_CLIP_Dinh (see Sample Definitions)
+
+##  Postprocessing to retrieve information of the Analysis ## 
+- run bin/get_sequences.sh to get the sequences from the fasta files of the peak regions
+- run bin/get_structure_information to get the structural information of the peak regions 
+
+## Generate Negatives ##
+- run bin/create_false_samples.sh to generate negative samples (= all transcript regions that do 
+not overlap with peak regions) 
+	--> needs bin/transcripts_hg38.bed (Obtained from UCSC of hg38)
+- run bin/get_sequence_for_false_samples to generate the sequences for the negative samples 
+
+## Count how often a binding site appear in other RBPs ##
+- run bin/count_binding_sites_occur_in_RBPs to count in how many RBPs a binding site of a 
+specific RBP appear
+
+######################
+# Sample Definitions #
+######################
+
+# input directory
+sample_data_dir: "/scratch/bi03/heylf/Dinh"
+
+clip_samples:
+  Protein_rep1: {r1: "DRR014099", r2: "-"}
+  Protein_rep2: {r1: "DRR014100", r2: "-"}
+  Protein_rep3: {r1: "DRR014103", r2: "-"}
+  Protein_rep4: {r1: "ERR669914", r2: "-"}
+  Protein_rep5: {r1: "ERR669915", r2: "-"}
+  Protein_rep6: {r1: "SRR048950", r2: "-"}
+  Protein_rep7: {r1: "SRR048951", r2: "-"}
+  Protein_rep8: {r1: "SRR048952", r2: "-"}
+  Protein_rep9: {r1: "SRR048953", r2: "-"}
+  Protein_rep10: {r1: "SRR048954", r2: "-"}
+  Protein_rep11: {r1: "SRR048955", r2: "-"}
+  Protein_rep12: {r1: "SRR048957", r2: "-"}
+  Protein_rep13: {r1: "SRR048958", r2: "-"}
+  Protein_rep14: {r1: "SRR048959", r2: "-"}
+  Protein_rep15: {r1: "SRR048960", r2: "-"}
+  Protein_rep16: {r1: "SRR048961", r2: "-"}
+  Protein_rep17: {r1: "SRR048962", r2: "-"}
+  Protein_rep18: {r1: "SRR048963", r2: "-"}
+  Protein_rep19: {r1: "SRR048964", r2: "-"}
+  Protein_rep20: {r1: "SRR048965", r2: "-"}
+  Protein_rep21: {r1: "SRR048966", r2: "-"}
+  Protein_rep22: {r1: "SRR048967", r2: "-"}
+  Protein_rep23: {r1: "SRR048968", r2: "-"}
+  Protein_rep24: {r1: "SRR048969", r2: "-"}
+  Protein_rep25: {r1: "SRR048970", r2: "-"}
+  Protein_rep26: {r1: "SRR048971", r2: "-"}
+  Protein_rep27: {r1: "SRR048972", r2: "-"}
+  Protein_rep28: {r1: "SRR048973", r2: "-"}
+  Protein_rep29: {r1: "SRR048974", r2: "-"}
+  Protein_rep30: {r1: "SRR048975", r2: "-"}
+  Protein_rep31: {r1: "SRR048976", r2: "-"}
+  Protein_rep32: {r1: "SRR048977", r2: "-"}
+  Protein_rep33: {r1: "SRR048978", r2: "-"}
+  Protein_rep34: {r1: "SRR048979", r2: "-"}
+  Protein_rep35: {r1: "SRR048982", r2: "-"}
+  Protein_rep36: {r1: "SRR048983", r2: "-"}
+  Protein_rep37: {r1: "SRR048984", r2: "-"}
+  Protein_rep38: {r1: "SRR048985", r2: "-"}
+  Protein_rep39: {r1: "SRR048986", r2: "-"}
+  Protein_rep40: {r1: "SRR048987", r2: "-"}
+  Protein_rep41: {r1: "SRR070448", r2: "-"}
+  Protein_rep42: {r1: "SRR070449", r2: "-"}
+  Protein_rep43: {r1: "SRR070450", r2: "-"}
+  Protein_rep44: {r1: "SRR070460", r2: "-"}
+  Protein_rep45: {r1: "SRR070461", r2: "-"}
+  Protein_rep46: {r1: "SRR070462", r2: "-"}
+  Protein_rep47: {r1: "SRR070463", r2: "-"}
+  Protein_rep48: {r1: "SRR189777", r2: "-"}
+  Protein_rep49: {r1: "SRR189778", r2: "-"}
+  Protein_rep50: {r1: "SRR189779", r2: "-"}
+  Protein_rep51: {r1: "SRR189780", r2: "-"}
+  Protein_rep52: {r1: "SRR189781", r2: "-"}
+  Protein_rep53: {r1: "SRR189784", r2: "-"}
+  Protein_rep54: {r1: "SRR189785", r2: "-"}
+  Protein_rep55: {r1: "SRR189786", r2: "-"}
+  Protein_rep56: {r1: "SRR189787", r2: "-"}
+  Protein_rep57: {r1: "SRR248532", r2: "-"}
+  Protein_rep58: {r1: "SRR452496", r2: "-"}
+  Protein_rep59: {r1: "SRR452497", r2: "-"}
+  Protein_rep60: {r1: "SRR488725", r2: "-"}
+  Protein_rep61: {r1: "SRR488726", r2: "-"}
+  Protein_rep62: {r1: "SRR488727", r2: "-"}
+  Protein_rep63: {r1: "SRR488728", r2: "-"}
+  Protein_rep64: {r1: "SRR488729", r2: "-"}
+  Protein_rep65: {r1: "SRR488730", r2: "-"}
+  Protein_rep66: {r1: "SRR488731", r2: "-"}
+  Protein_rep67: {r1: "SRR488732", r2: "-"}
+  Protein_rep68: {r1: "SRR488733", r2: "-"}
+  Protein_rep69: {r1: "SRR488734", r2: "-"}
+  Protein_rep70: {r1: "SRR488735", r2: "-"}
+  Protein_rep71: {r1: "SRR488736", r2: "-"}
+  Protein_rep72: {r1: "SRR488737", r2: "-"}
+  Protein_rep73: {r1: "SRR488738", r2: "-"}
+  Protein_rep74: {r1: "SRR488739", r2: "-"}
+  Protein_rep75: {r1: "SRR488740", r2: "-"}
+  Protein_rep76: {r1: "SRR488741", r2: "-"}
+  Protein_rep77: {r1: "SRR488742", r2: "-"}
+  Protein_rep78: {r1: "SRR490650", r2: "-"}
+  Protein_rep79: {r1: "SRR500478", r2: "-"}
+  Protein_rep80: {r1: "SRR500479", r2: "-"}
+  Protein_rep81: {r1: "SRR500480", r2: "-"}
+  Protein_rep82: {r1: "SRR500481", r2: "-"}
+  Protein_rep83: {r1: "SRR500482", r2: "-"}
+  Protein_rep84: {r1: "SRR500483", r2: "-"}
+  Protein_rep85: {r1: "SRR500484", r2: "-"}
+  Protein_rep86: {r1: "SRR500485", r2: "-"}
+  Protein_rep87: {r1: "SRR500486", r2: "-"}
+  Protein_rep88: {r1: "SRR500487", r2: "-"}
+  Protein_rep89: {r1: "SRR527727", r2: "-"}
+  Protein_rep90: {r1: "SRR527728", r2: "-"}
+  Protein_rep91: {r1: "SRR527731", r2: "-"}
+  Protein_rep92: {r1: "SRR527732", r2: "-"}
+  Protein_rep93: {r1: "SRR650318", r2: "-"}
+  Protein_rep94: {r1: "SRR650319", r2: "-"}
+  Protein_rep95: {r1: "SRR650320", r2: "-"}
+  Protein_rep96: {r1: "SRR650321", r2: "-"}
+  Protein_rep97: {r1: "SRR651722", r2: "-"}
+  Protein_rep98: {r1: "SRR651723", r2: "-"}
+  Protein_rep99: {r1: "SRR651724", r2: "-"}
+  Protein_rep100: {r1: "SRR651725", r2: "-"}
+  Protein_rep101: {r1: "SRR651726", r2: "-"}
+  Protein_rep102: {r1: "SRR651727", r2: "-"}
+  Protein_rep103: {r1: "SRR653235", r2: "-"}
+  Protein_rep104: {r1: "SRR653236", r2: "-"}
+  Protein_rep105: {r1: "SRR653237", r2: "-"}
+  Protein_rep106: {r1: "SRR653238", r2: "-"}
+  Protein_rep107: {r1: "SRR653239", r2: "-"}
+  Protein_rep108: {r1: "SRR764666", r2: "-"}
+  Protein_rep109: {r1: "SRR764667", r2: "-"}
+  Protein_rep110: {r1: "SRR764668", r2: "-"}
+  Protein_rep111: {r1: "SRR764669", r2: "-"}
+  Protein_rep112: {r1: "SRR771562", r2: "-"}
+  Protein_rep113: {r1: "SRR771563", r2: "-"}
+  Protein_rep114: {r1: "SRR850551", r2: "-"}
+  Protein_rep115: {r1: "SRR850552", r2: "-"}
+  Protein_rep116: {r1: "SRR857933", r2: "-"}
+  Protein_rep117: {r1: "SRR857934", r2: "-"}
+  Protein_rep118: {r1: "SRR921441", r2: "-"}
+  Protein_rep119: {r1: "SRR921442", r2: "-"}
+  Protein_rep120: {r1: "SRR921447", r2: "-"}
+  Protein_rep121: {r1: "SRR921448", r2: "-"}
+  Protein_rep122: {r1: "SRR965316", r2: "-"}
+  Protein_rep123: {r1: "SRR965317", r2: "-"}
+  Protein_rep124: {r1: "SRR989636", r2: "-"}
+  Protein_rep125: {r1: "SRR989637", r2: "-"}
+  Protein_rep126: {r1: "SRR1042839", r2: "-"}
+  Protein_rep127: {r1: "SRR1042840", r2: "-"}
+  Protein_rep128: {r1: "SRR1042842", r2: "-"}
+  Protein_rep129: {r1: "SRR1046759", r2: "-"}
+  Protein_rep130: {r1: "SRR1176638", r2: "-"}
+  Protein_rep131: {r1: "SRR1176639", r2: "-"}
+  Protein_rep132: {r1: "SRR1176640", r2: "-"}
+  Protein_rep133: {r1: "SRR1176641", r2: "-"}
+  Protein_rep134: {r1: "SRR1176642", r2: "-"}
+  Protein_rep135: {r1: "SRR1176643", r2: "-"}
+  Protein_rep136: {r1: "SRR1188147", r2: "-"}
+  Protein_rep137: {r1: "SRR1188166", r2: "-"}
+  Protein_rep138: {r1: "SRR1198834", r2: "-"}
+  Protein_rep139: {r1: "SRR1198835", r2: "-"}
+  Protein_rep140: {r1: "SRR1269756", r2: "-"}
+  Protein_rep141: {r1: "SRR1269757", r2: "-"}
+  Protein_rep142: {r1: "SRR1269758", r2: "-"}
+  Protein_rep143: {r1: "SRR1269759", r2: "-"}
+  Protein_rep144: {r1: "SRR1566437", r2: "-"}
+  Protein_rep145: {r1: "SRR1657189", r2: "-"}
+  Protein_rep146: {r1: "SRR1657190", r2: "-"}
+  Protein_rep147: {r1: "SRR1657191", r2: "-"}
+  Protein_rep148: {r1: "SRR1657192", r2: "-"}
+  Protein_rep149: {r1: "SRR1657193", r2: "-"}
+  Protein_rep150: {r1: "SRR1761288", r2: "-"}
+  Protein_rep151: {r1: "SRR1761289", r2: "-"}
+  Protein_rep152: {r1: "SRR1761290", r2: "-"}
+  Protein_rep153: {r1: "SRR1761291", r2: "-"}
+  Protein_rep154: {r1: "SRR1761292", r2: "-"}
+  Protein_rep155: {r1: "SRR1761293", r2: "-"}
+  Protein_rep156: {r1: "SRR1761294", r2: "-"}
+  Protein_rep157: {r1: "SRR1761295", r2: "-"}
+  Protein_rep158: {r1: "SRR1761296", r2: "-"}
+  Protein_rep159: {r1: "SRR1761297", r2: "-"}
+  Protein_rep160: {r1: "SRR1761298", r2: "-"}
+  Protein_rep161: {r1: "SRR1761299", r2: "-"}
+  Protein_rep162: {r1: "SRR2048051", r2: "-"}
+  Protein_rep163: {r1: "SRR2048053", r2: "-"}
+  Protein_rep164: {r1: "SRR2048056", r2: "-"}
+  Protein_rep165: {r1: "SRR4301753", r2: "-"}
+  Protein_rep166: {r1: "SRR5224312", r2: "-"}
+  Protein_rep167: {r1: "SRR5224313", r2: "-"}
+
+protocol: "PARCLIP"
+paired: "no"
+control: "no"
+demultiplexed: "yes"
+
+# Peakcaller
+peakcaller: "Piranha"
+
+# genome directories
+# hg38 
+ref_genome_dir: "/scratch/bi03/heylf/genomes/hg38"
+genome_fasta: "/hg38.fa"
+genome_2bit: "/hg38.2bit"
+genome_gtf: "/Gencode.v29.all.gtf"
+genome_sizes: "/hg38.chrom.sizes.txt"
+
+

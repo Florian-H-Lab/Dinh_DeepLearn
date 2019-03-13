@@ -1,0 +1,17 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cluster nodes: 20
+Job counts:
+	count	jobs
+	1	all
+	1	rna_structure_prediction
+	2
+
+[Thu Jan 17 10:19:44 2019]
+rule rna_structure_prediction:
+    input: /scratch/bi03/heylf/Dinh/ELAVL1/Murkherjee/motif_detection/ELAVL1_rep1_peaks.fa
+    output: /scratch/bi03/heylf/Dinh/ELAVL1/Murkherjee/structure_prediction/ELAVL1_rep1_structures.txt
+    jobid: 1
+    wildcards: sample=ELAVL1, replicate=rep1
+
+Submitted job 1 with external jobid 'Your job 5292370 ("Structure") has been submitted'.

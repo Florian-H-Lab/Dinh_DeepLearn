@@ -1,0 +1,114 @@
+Building DAG of jobs...
+Job counts:
+	count	jobs
+	1	all
+	2	bam_to_bed
+	2	calculate_coverage
+	6	calculate_coverage_bigwig
+	2	correct_bed_format_check
+	2	cutadapt_adapter_trimming
+	1	extract_genomic_DNA_dreme
+	2	fastqc_after_adapter_removal
+	2	fastqc_after_dedup
+	2	fastqc_beginning
+	2	filter_out_unlocalized_regions_for_later_genome_versions
+	2	indexing
+	1	intersect_binding_regions_with_peaks
+	1	meme_chip
+	1	multiqc
+	1	peaks_extend_frontiers
+	1	pureclip
+	2	remove_tail
+	1	renaming
+	2	sort_beds
+	2	star
+	2	unique_reads_fitlering
+	40
+
+[Wed Jan 16 18:06:58 2019]
+rule renaming:
+    input: /scratch/bi03/heylf/Marc/YY1_CLIP/SRR1991264.fastq, /scratch/bi03/heylf/Marc/YY1_CLIP/SRR1991265.fastq
+    output: /scratch/bi03/heylf/Marc/YY1_CLIP/renaming/YY1_rep1_r1.fastqsanger, /scratch/bi03/heylf/Marc/YY1_CLIP/renaming/Input_rep1_r1.fastqsanger, /scratch/bi03/heylf/Marc/YY1_CLIP/renaming/renaming_log.txt
+    jobid: 33
+
+[Wed Jan 16 18:06:58 2019]
+rule cutadapt_adapter_trimming:
+    input: /scratch/bi03/heylf/Marc/YY1_CLIP/renaming/YY1_rep1_r1.fastqsanger
+    output: /scratch/bi03/heylf/Marc/YY1_CLIP/cutadapt/YY1_rep1_r1.fastqsanger, /scratch/bi03/heylf/Marc/YY1_CLIP/cutadapt/YY1_rep1.txt
+    jobid: 32
+    wildcards: sample=YY1, replicate=rep1
+
+if [ ! -d /scratch/bi03/heylf/Marc/YY1_CLIP/cutadapt ]; then mkdir /scratch/bi03/heylf/Marc/YY1_CLIP/cutadapt; fi&& echo --error-rate=0.1 --times=1 --overlap=5 -m 20 -a TGGAATTCTCGGGTGCCAAGG >> /scratch/bi03/heylf/Marc/YY1_CLIP/tool_params.txt&& cutadapt -j 1 --error-rate=0.1 --times=1 --overlap=5 -m 20 -a TGGAATTCTCGGGTGCCAAGG --output=/scratch/bi03/heylf/Marc/YY1_CLIP/cutadapt/YY1_rep1_r1.fastqsanger /scratch/bi03/heylf/Marc/YY1_CLIP/renaming/YY1_rep1_r1.fastqsanger > /scratch/bi03/heylf/Marc/YY1_CLIP/cutadapt/YY1_rep1.txt
+
+[Wed Jan 16 18:06:58 2019]
+rule fastqc_beginning:
+    input: /scratch/bi03/heylf/Marc/YY1_CLIP/renaming/Input_rep1_r1.fastqsanger
+    output: /scratch/bi03/heylf/Marc/YY1_CLIP/fastqc_beginning/Input_rep1_r1.fastqsanger_fastqc.html, /scratch/bi03/heylf/Marc/YY1_CLIP/fastqc_beginning/Input_rep1_r1.fastqsanger_fastqc.zip
+    jobid: 26
+    wildcards: sample=Input, replicate=rep1, pair=r1
+
+if [ ! -d /scratch/bi03/heylf/Marc/YY1_CLIP/fastqc_beginning ]; then mkdir /scratch/bi03/heylf/Marc/YY1_CLIP/fastqc_beginning; fi&& fastqc /scratch/bi03/heylf/Marc/YY1_CLIP/renaming/Input_rep1_r1.fastqsanger --outdir /scratch/bi03/heylf/Marc/YY1_CLIP/fastqc_beginning
+
+[Wed Jan 16 18:06:58 2019]
+rule fastqc_beginning:
+    input: /scratch/bi03/heylf/Marc/YY1_CLIP/renaming/YY1_rep1_r1.fastqsanger
+    output: /scratch/bi03/heylf/Marc/YY1_CLIP/fastqc_beginning/YY1_rep1_r1.fastqsanger_fastqc.html, /scratch/bi03/heylf/Marc/YY1_CLIP/fastqc_beginning/YY1_rep1_r1.fastqsanger_fastqc.zip
+    jobid: 23
+    wildcards: sample=YY1, replicate=rep1, pair=r1
+
+if [ ! -d /scratch/bi03/heylf/Marc/YY1_CLIP/fastqc_beginning ]; then mkdir /scratch/bi03/heylf/Marc/YY1_CLIP/fastqc_beginning; fi&& fastqc /scratch/bi03/heylf/Marc/YY1_CLIP/renaming/YY1_rep1_r1.fastqsanger --outdir /scratch/bi03/heylf/Marc/YY1_CLIP/fastqc_beginning
+
+[Wed Jan 16 18:06:58 2019]
+rule cutadapt_adapter_trimming:
+    input: /scratch/bi03/heylf/Marc/YY1_CLIP/renaming/Input_rep1_r1.fastqsanger
+    output: /scratch/bi03/heylf/Marc/YY1_CLIP/cutadapt/Input_rep1_r1.fastqsanger, /scratch/bi03/heylf/Marc/YY1_CLIP/cutadapt/Input_rep1.txt
+    jobid: 34
+    wildcards: sample=Input, replicate=rep1
+
+if [ ! -d /scratch/bi03/heylf/Marc/YY1_CLIP/cutadapt ]; then mkdir /scratch/bi03/heylf/Marc/YY1_CLIP/cutadapt; fi&& echo --error-rate=0.1 --times=1 --overlap=5 -m 20 -a TGGAATTCTCGGGTGCCAAGG >> /scratch/bi03/heylf/Marc/YY1_CLIP/tool_params.txt&& cutadapt -j 1 --error-rate=0.1 --times=1 --overlap=5 -m 20 -a TGGAATTCTCGGGTGCCAAGG --output=/scratch/bi03/heylf/Marc/YY1_CLIP/cutadapt/Input_rep1_r1.fastqsanger /scratch/bi03/heylf/Marc/YY1_CLIP/renaming/Input_rep1_r1.fastqsanger > /scratch/bi03/heylf/Marc/YY1_CLIP/cutadapt/Input_rep1.txt
+
+[Wed Jan 16 18:06:58 2019]
+rule remove_tail:
+    input: /scratch/bi03/heylf/Marc/YY1_CLIP/cutadapt/YY1_rep1_r1.fastqsanger
+    output: /scratch/bi03/heylf/Marc/YY1_CLIP/remove_tail/YY1_rep1_r1_trimmed.fastqsanger
+    jobid: 18
+    wildcards: samples=YY1, replicate=rep1
+
+if [ ! -d /scratch/bi03/heylf/Marc/YY1_CLIP/remove_tail ]; then mkdir /scratch/bi03/heylf/Marc/YY1_CLIP/remove_tail; fi&& echo 1 >> /scratch/bi03/heylf/Marc/YY1_CLIP/tool_params.txt&& python scripts/remove_tail.py /scratch/bi03/heylf/Marc/YY1_CLIP/cutadapt/YY1_rep1_r1.fastqsanger 1 > /scratch/bi03/heylf/Marc/YY1_CLIP/remove_tail/YY1_rep1_r1_trimmed.fastqsanger
+
+[Wed Jan 16 18:06:58 2019]
+rule remove_tail:
+    input: /scratch/bi03/heylf/Marc/YY1_CLIP/cutadapt/Input_rep1_r1.fastqsanger
+    output: /scratch/bi03/heylf/Marc/YY1_CLIP/remove_tail/Input_rep1_r1_trimmed.fastqsanger
+    jobid: 27
+    wildcards: samples=Input, replicate=rep1
+
+if [ ! -d /scratch/bi03/heylf/Marc/YY1_CLIP/remove_tail ]; then mkdir /scratch/bi03/heylf/Marc/YY1_CLIP/remove_tail; fi&& echo 1 >> /scratch/bi03/heylf/Marc/YY1_CLIP/tool_params.txt&& python scripts/remove_tail.py /scratch/bi03/heylf/Marc/YY1_CLIP/cutadapt/Input_rep1_r1.fastqsanger 1 > /scratch/bi03/heylf/Marc/YY1_CLIP/remove_tail/Input_rep1_r1_trimmed.fastqsanger
+
+[Wed Jan 16 18:06:58 2019]
+rule fastqc_after_adapter_removal:
+    input: /scratch/bi03/heylf/Marc/YY1_CLIP/remove_tail/Input_rep1_r1_trimmed.fastqsanger
+    output: /scratch/bi03/heylf/Marc/YY1_CLIP/fastqc_after_trimming/Input_rep1_r1_trimmed.fastqsanger_fastqc.html, /scratch/bi03/heylf/Marc/YY1_CLIP/fastqc_after_trimming/Input_rep1_r1_trimmed.fastqsanger_fastqc.zip
+    jobid: 25
+    wildcards: sample=Input, replicate=rep1, pair=r1
+
+if [ ! -d /scratch/bi03/heylf/Marc/YY1_CLIP/fastqc_after_trimming ]; then mkdir /scratch/bi03/heylf/Marc/YY1_CLIP/fastqc_after_trimming; fi&& fastqc /scratch/bi03/heylf/Marc/YY1_CLIP/remove_tail/Input_rep1_r1_trimmed.fastqsanger --outdir /scratch/bi03/heylf/Marc/YY1_CLIP/fastqc_after_trimming
+
+[Wed Jan 16 18:06:58 2019]
+rule fastqc_after_adapter_removal:
+    input: /scratch/bi03/heylf/Marc/YY1_CLIP/remove_tail/YY1_rep1_r1_trimmed.fastqsanger
+    output: /scratch/bi03/heylf/Marc/YY1_CLIP/fastqc_after_trimming/YY1_rep1_r1_trimmed.fastqsanger_fastqc.html, /scratch/bi03/heylf/Marc/YY1_CLIP/fastqc_after_trimming/YY1_rep1_r1_trimmed.fastqsanger_fastqc.zip
+    jobid: 22
+    wildcards: sample=YY1, replicate=rep1, pair=r1
+
+if [ ! -d /scratch/bi03/heylf/Marc/YY1_CLIP/fastqc_after_trimming ]; then mkdir /scratch/bi03/heylf/Marc/YY1_CLIP/fastqc_after_trimming; fi&& fastqc /scratch/bi03/heylf/Marc/YY1_CLIP/remove_tail/YY1_rep1_r1_trimmed.fastqsanger --outdir /scratch/bi03/heylf/Marc/YY1_CLIP/fastqc_after_trimming
+
+[Wed Jan 16 18:06:58 2019]
+rule star:
+    input: /scratch/bi03/heylf/genomes/mm10/sjdbList.fromGTF.out.tab, /scratch/bi03/heylf/Marc/YY1_CLIP/remove_tail/Input_rep1_r1_trimmed.fastqsanger
+    output: /scratch/bi03/heylf/Marc/YY1_CLIP/mapping/Input_rep1.txt, /scratch/bi03/heylf/Marc/YY1_CLIP/mapping/Input_rep1.bam, /scratch/bi03/heylf/Marc/YY1_CLIP/mapping/Input_rep1_Log.final.out
+    jobid: 11
+    wildcards: sample=Input, replicate=rep1
+
+RuleException in line 20 of /scratch/bi03/heylf/SalamiSnake_CLIP/rules/Main/mapping_singleend.py:
+NameError: The name 'star' is unknown in this context. Please make sure that you defined that variable. Also note that braces not used for variable access have to be escaped by repeating them, i.e. {{print $1}}

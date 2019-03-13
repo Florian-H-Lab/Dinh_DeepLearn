@@ -1,0 +1,4 @@
+Building DAG of jobs...
+MissingInputException in line 20 of /scratch/bi03/heylf/SalamiSnake_CLIP_2/rules/PARCLIP/PARCLIP_preprocessing_singleend.py:
+Missing input files for rule cutadapt_adapter_trimming:
+/scratch/bi03/heylf/Dinh/renaming/Protein_92_r1.fastqsanger
